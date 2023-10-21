@@ -1,0 +1,102 @@
+@font-face {
+	font-family: "quickSand";
+	src: url(../assets/fonts/Quicksand-VariableFont_wght.ttf) format(truetype);
+}
+
+@font-face {
+	font-family: "Space";
+	src: url(../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf) format(truetype);
+}
+
+@font-face {
+	font-family: "Unbound";
+	src: url(../assets/fonts/Unbounded-VariableFont_wght.ttf) format(truetype);
+}
+
+@font-face {
+	font-family: "Lilita";
+	src: url(../assets/fonts/LilitaOne-Regular.ttf);
+}
+
+:root {
+	--60Color: black;
+	--30Color: #212121;
+	--10Color: #66bb6a;
+}
+
+body {
+	background-color: var(--60Color);
+	border-left: 3px solid var(--10Color);
+	display: grid;
+	height: 100vh;
+	grid-template-columns: 0.5fr 3fr 1fr;
+	grid-template-rows: 0.5fr 4fr 0.5fr;
+	font-family: "quickSand";
+	color: white;
+}
+
+header {
+	font-family: "Unbound";
+	font-size: 40px;
+	grid-area: 1/1/1/4;
+	display: flex;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-right: 20px;
+}
+
+header > span {
+	align-self: center;
+}
+
+#to2 {
+	color: var(--10Color);
+}
+
+header > img {
+	height: 90px;
+}
+
+header > div > button {
+	height: 40px;
+	border-radius: 20px;
+	background-color: var(--10Color);
+	border-color: transparent;
+	margin-right: 25px;
+	align-self: center;
+	justify-self: end;
+}
+
+nav {
+}
+
+#toDoDispaly {
+}
+
+footer {
+	position: absolute;
+	right: 30px;
+	bottom: 15px;
+}
+
+footer > span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+}
+
+footer > span > a {
+	width: 27%;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: inherit;
+	justify-content: space-between;
+	margin-left: 4px;
+}
+
+footer > span > a > img {
+	margin-left: 4px;
+	filter: invert(68%) sepia(4%) saturate(5571%) hue-rotate(75deg) brightness(95%) contrast(88%);
+}

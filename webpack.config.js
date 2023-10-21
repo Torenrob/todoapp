@@ -11,6 +11,7 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			title: "Toto",
+			template: "src/index.html",
 		}),
 	],
 	mode: "development",
