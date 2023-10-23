@@ -40,27 +40,28 @@ github.setAttribute("src", githubLogo);
 export let projectList = [];
 
 //Initiate object to manage independent tasks
-let independentTasks = [];
+export let independentTasks = [];
 
-// newTaskBtn.addEventListener("click", newTaskDialogue);
-// function newTaskDialogue() {
-// 	newTaskBox.style.visibility = "visible";
-// 	newProjBox.style.visibility = "hidden";
-// }
+newTaskBtn.addEventListener("click", newTaskDialogue);
+function newTaskDialogue() {
+	newTaskBox.style.visibility = "visible";
+	newProjBox.style.visibility = "hidden";
+}
 
-// newProjectBtn.addEventListener("click", newProjDialogue);
-// function newProjDialogue() {
-// 	newProjBox.style.visibility = "visible";
-// 	newTaskBox.style.visibility = "hidden";
-// }
+newProjectBtn.addEventListener("click", newProjDialogue);
+function newProjDialogue() {
+	newProjBox.style.visibility = "visible";
+	newTaskBox.style.visibility = "hidden";
+}
 
-// function cancelCreateObj() {
-// 	newTaskBox.style.visibility = "hidden";
-// 	newProjBox.style.visibility = "hidden";
-// }
-// Array.from(cancelCreateBtns).forEach((x) => {
-// 	x.addEventListener("click", cancelCreateObj);
-// });
+function cancelCreateObj() {
+	newTaskBox.style.visibility = "hidden";
+	newProjBox.style.visibility = "hidden";
+}
+
+Array.from(cancelCreateBtns).forEach((x) => {
+	x.addEventListener("click", cancelCreateObj);
+});
 
 //Sort function
 function sortList(listToSort, propertySortBy, ascDesc) {

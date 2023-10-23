@@ -2094,8 +2094,8 @@ progress {
 }
 
 .col-form-label-sm {
-  padding-top: calc(5px + var(--bs-border-width));
-  padding-bottom: calc(5px + var(--bs-border-width));
+  padding-top: calc(3px + var(--bs-border-width));
+  padding-bottom: calc(3px + var(--bs-border-width));
   font-size: 0.875rem;
 }
 
@@ -2198,15 +2198,15 @@ progress {
 }
 
 .form-control-sm {
-  min-height: calc(1.5em + 10px + calc(var(--bs-border-width) * 2));
-  padding: 5px 5px;
+  min-height: calc(1.5em + 6px + calc(var(--bs-border-width) * 2));
+  padding: 3px 3px;
   font-size: 0.875rem;
   border-radius: 4px;
 }
 .form-control-sm::file-selector-button {
-  padding: 5px 5px;
-  margin: -5px -5px;
-  margin-inline-end: 5px;
+  padding: 3px 3px;
+  margin: -3px -3px;
+  margin-inline-end: 3px;
 }
 
 .form-control-lg {
@@ -2225,7 +2225,7 @@ textarea.form-control {
   min-height: calc(1.5em + 0.75rem + calc(var(--bs-border-width) * 2));
 }
 textarea.form-control-sm {
-  min-height: calc(1.5em + 10px + calc(var(--bs-border-width) * 2));
+  min-height: calc(1.5em + 6px + calc(var(--bs-border-width) * 2));
 }
 textarea.form-control-lg {
   min-height: calc(1.5em + 1rem + calc(var(--bs-border-width) * 2));
@@ -2248,7 +2248,7 @@ textarea.form-control-lg {
   border-radius: var(--bs-border-radius);
 }
 .form-control-color.form-control-sm {
-  height: calc(1.5em + 10px + calc(var(--bs-border-width) * 2));
+  height: calc(1.5em + 6px + calc(var(--bs-border-width) * 2));
 }
 .form-control-color.form-control-lg {
   height: calc(1.5em + 1rem + calc(var(--bs-border-width) * 2));
@@ -2296,9 +2296,9 @@ textarea.form-control-lg {
 }
 
 .form-select-sm {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 3px;
   font-size: 0.875rem;
   border-radius: 4px;
 }
@@ -2672,7 +2672,7 @@ textarea.form-control-lg {
 .input-group-sm > .form-select,
 .input-group-sm > .input-group-text,
 .input-group-sm > .btn {
-  padding: 5px 5px;
+  padding: 3px 3px;
   font-size: 0.875rem;
   border-radius: 4px;
 }

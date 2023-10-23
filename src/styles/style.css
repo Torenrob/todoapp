@@ -110,18 +110,16 @@ footer > span > a > img {
 
 #newProjEntryBox,
 #newTaskEntryBox {
+	display: flex;
+	flex-direction: column;
 	background-color: var(--30Color);
 	height: fit-content;
 	width: 400px;
 	color: white;
 	border-radius: 4px;
-	position: relative;
+	position: absolute;
 	top: 25%;
 	left: 40%;
-}
-
-[popover]::backdrop {
-	backdrop-filter: blur(0.15rem);
 }
 
 input,

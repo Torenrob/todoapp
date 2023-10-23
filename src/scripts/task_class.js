@@ -1,3 +1,5 @@
+import { independentTasks } from "./index";
+
 //Create new task
 export function newTask(title, description = null, tag = null, due_date = null, due_time = null, priority = null, users = null, teams = null, taskFolder = null) {
 	let new_task = new Task(title, description, tag, due_date, due_time, priority, users, teams);
