@@ -1,21 +1,26 @@
+import { projectList } from "./index";
+
 //Create new project
-export function newProject(title, description = null, tag = null, due_date_time = null, priority = null, users = null, teams = null, ...tasks) {
-	projectList.push(new Project(title, description, tag, due_date_time, priority, users, teams, ...tasks));
-	setStorage();
+export function newProject(title, description = null, tag = null, due_date = null, due_time = null, priority = null, users = null, teams = null, ...tasks) {
+	projectList.push(new Project(title, description, tag, due_date, due_time, priority, users, teams, ...tasks));
 }
 
 //Create Project class
 export class Project {
-	constructor(title, description = null, tag = null, due_date_time = null, priority = null, users = null, teams = null, ...tasks) {
+	constructor(title, description, tag, due_date, due_time, priority, users, teams, ...tasks) {
 		this.title = title;
-		this.description = description;
-		this.tag = tag;
-		this.dueDateTime = due_date_time ? new Date(due_date_time) : null;
+		this.description = description == "" ? null : description;
+		this.tag = tag == "" ? null : tag;
+		if (due_date != "" && due_time != "") {
+			this.dueDateTime = new Date(`${due_date}T${due_time}`);
+		} else {
+			this.dueDateTime = due_date != "" ? new Date(due_date) : null;
+		}
 		this.priority = priority;
 		this.taskList = tasks;
 		this.completionPercentage = calculateCompletion(this.taskList);
-		this.assignedUsers = users;
-		this.assignedTeams = teams;
+		// this.assignedUsers = users;
+		// this.assignedTeams = teams;
 
 		addProjMethods(this);
 	}

@@ -32,6 +32,7 @@ body {
 	grid-template-rows: 0.5fr 4fr 0.5fr;
 	font-family: "quickSand";
 	color: white;
+	caret-color: transparent;
 }
 
 header {
@@ -71,7 +72,7 @@ header > img {
 	margin-left: 37px;
 	margin-top: 10px;
 	font-weight: bold;
-	font-family: "quickSand";
+	font-family: "Space";
 	cursor: pointer;
 }
 
@@ -105,4 +106,25 @@ footer > span > a {
 footer > span > a > img {
 	margin-left: 4px;
 	filter: invert(68%) sepia(4%) saturate(5571%) hue-rotate(75deg) brightness(95%) contrast(88%);
+}
+
+#newProjEntryBox,
+#newTaskEntryBox {
+	background-color: var(--30Color);
+	height: fit-content;
+	width: 400px;
+	color: white;
+	border-radius: 4px;
+	position: relative;
+	top: 25%;
+	left: 40%;
+}
+
+[popover]::backdrop {
+	backdrop-filter: blur(0.15rem);
+}
+
+input,
+textarea {
+	caret-color: black;
 }

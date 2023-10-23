@@ -1,0 +1,16 @@
+$ten_color: #66bb6a;
+
+$form-select-border-color: $ten_color;
+$form-select-border-width: 2.5px;
+$form-select-focus-border-color: $ten_color;
+$form-select-focus-box-shadow: 0 0 0 4px #66bb6a8c;
+$input-focus-box-shadow: 0 0 0 4px #66bb6a8c;
+$input-focus-border-color: $ten_color;
+$input-padding-y-sm: 5px;
+$input-padding-x-sm: 5px;
+$input-group-addon-bg: $ten_color;
+$input-group-addon-border-color: $ten_color;
+$blue: $ten_color;
+$input-border-radius-sm: 4px;
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
