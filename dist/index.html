@@ -25,26 +25,34 @@
                <button class="btn btn-primary btn-sm" id="newTask">New Task</button>
             </div>
             <div id="projTaskNav">
+               <div>
+                  <h4>Tasks</h4>
+                  <div id="indpendentTasksDiv" class="inboxColmOneItems">
+                  </div>
+               </div>
+               <div>
+                  <h4 class="mt-2">Projects</h4>
+                  <div id="projectListDiv" class="inboxColmOneItems">
+                  </div>
+               </div>
             </div>
-         </div>
-         <div id="toDoDisplay">
          </div>
       </main>
       <div id="newProjEntryBox" style="visibility: hidden;">
-         <form style="padding: 15px 15px 10px 15px; display: flex; flex-direction: column;" id="newProjForm">
+         <form style="padding: 15px; display: flex; flex-direction: column;" id="newProjForm">
             <span style="align-self: center; font-weight: 1000;">New Project</span>
             <div class="input-group input-group-sm mt-2 mb-3">
-               <label style="font-weight: 600;" class="input-group-text" for=" projTitle">Title:</label>
+               <label style="font-weight: 600;" class="input-group-text" for=" projTitle">Title</label>
                <input class="form-control" type="text" name="projTitle" required>
             </div>
             <div class="input-group input-group-sm mb-3">
-               <label style="font-weight: 600;" class="input-group-text" for=" projDescription">Description:</label>
+               <label style="font-weight: 600;" class="input-group-text" for=" projDescription">Description</label>
                <textarea class="form-control" rows="2" cols="10" name="projDescription"></textarea>
             </div>
             <div class="input-group input-group-sm mb-3">
-               <label style="font-weight: 600;" class="input-group-text" for=" projDueDate">Due Date:</label>
+               <label style="font-weight: 600;" class="input-group-text" for=" projDueDate">Due Date</label>
                <input class="form-control" type="date" name="projDueDate">
-               <label style="font-weight: 600;" class="input-group-text" for=" projDueTime">Time:</label>
+               <label style="font-weight: 600;" class="input-group-text" for=" projDueTime">Time</label>
                <input class="form-control" type="time" name="projDueTime">
             </div>
             <div style="display: flex;">
@@ -53,7 +61,7 @@
                   <input class="form-control" type="text" name="projTag">
                </div>
                <div class="input-group input-group-sm mb-3">
-                  <label style="font-weight: 600;" class="input-group-text" for="projPriority">Priority:</label>
+                  <label style="font-weight: 600;" class="input-group-text" for="projPriority">Priority</label>
                   <select style="background-color: green; color: white; font-weight: 600;"
                      class="form-select form-select-sm prioritySelect" name="projPriority">
                      <option style="background-color: green; font-weight: 600;" value="Low">Low</option>
@@ -62,29 +70,30 @@
                   </select>
                </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-sm mt-0"
-               style="align-self: center; font-weight: 500;">Create
-               Project</button>
-            <span class="cancelCreateBtn"
-               style="margin-top: 1rem; align-self: center; color: rgb(185, 30, 30); font-weight: 700; cursor: pointer;">Cancel</span>
+            <div style="display: flex; justify-content: space-between;">
+               <button type="submit" class="btn btn-primary btn-sm mt-0"
+                  style="align-self: center; font-weight: 500;">Create
+                  Project</button>
+               <span class="cancelCreateBtn"
+                  style="align-self: center; color: rgb(185, 30, 30); font-weight: 700; cursor: pointer;">Cancel</span>
+            </div>
          </form>
       </div>
       <div id="newTaskEntryBox" style="visibility: hidden;">
-         <form style="padding: 15px 15px 10px 15px; display: flex; flex-direction: column;" action="none"
-            id="newTaskForm">
+         <form style="padding: 15px; display: flex; flex-direction: column;" action="none" id="newTaskForm">
             <span style="align-self: center; font-weight: 1000;">New Task</span>
             <div class="input-group input-group-sm mt-2 mb-3">
-               <label style="font-weight: 600;" class="input-group-text" for=" taskTitle">Title:</label>
+               <label style="font-weight: 600;" class="input-group-text" for=" taskTitle">Title</label>
                <input required class="form-control" type="text" name="taskTitle">
             </div>
             <div class="input-group input-group-sm mb-3">
-               <label style="font-weight: 600;" class="input-group-text" for=" taskDescription">Description:</label>
+               <label style="font-weight: 600;" class="input-group-text" for=" taskDescription">Description</label>
                <textarea class="form-control" rows="2" cols="10" name="taskDescription"></textarea>
             </div>
             <div class="input-group input-group-sm mb-3">
-               <label style="font-weight: 600;" class="input-group-text" for=" taskDueDate">Due Date:</label>
+               <label style="font-weight: 600;" class="input-group-text" for=" taskDueDate">Due Date</label>
                <input class="form-control" type="date" name="taskDueDate">
-               <label style="font-weight: 600;" class="input-group-text" for=" taskDueTime">Time:</label>
+               <label style="font-weight: 600;" class="input-group-text" for=" taskDueTime">Time</label>
                <input class="form-control" type="time" name="taskDueTime">
             </div>
             <div style="display: flex;">
@@ -93,7 +102,7 @@
                   <input class="form-control" type="text" name="taskTag">
                </div>
                <div class="input-group input-group-sm mb-3">
-                  <label style="font-weight: 600;" class="input-group-text" for="taskPriority">Priority:</label>
+                  <label style="font-weight: 600;" class="input-group-text" for="taskPriority">Priority</label>
                   <select style="background-color: green; color: white; font-weight: 600;"
                      class="form-select form-select-sm prioritySelect" name="taskPriority">
                      <option style="background-color: green; font-weight: 600;" value="Low">Low</option>
@@ -102,11 +111,13 @@
                   </select>
                </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-sm mt-0"
-               style="align-self: center; font-weight: 500;">Create
-               Task</button>
-            <span class="cancelCreateBtn"
-               style="margin-top: 1rem; align-self: center; color: rgb(185, 30, 30); font-weight: 700; cursor: pointer;">Cancel</span>
+            <div style="display: flex; justify-content: space-between;">
+               <button type="submit" class="btn btn-primary btn-sm mt-0"
+                  style="align-self: center; font-weight: 500;">Create
+                  Task</button>
+               <span class="cancelCreateBtn"
+                  style="align-self: center; color: rgb(185, 30, 30); font-weight: 700; cursor: pointer;">Cancel</span>
+            </div>
          </form>
       </div>
       <footer><span>KANO

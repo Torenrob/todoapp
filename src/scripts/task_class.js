@@ -1,4 +1,4 @@
-import { independentTasks } from "./index";
+export let independentTasks = [];
 
 //Create new task
 export function newTask(title, description = null, tag = null, due_date = null, due_time = null, priority = null, users = null, teams = null, taskFolder = null) {
@@ -11,7 +11,6 @@ export function newTask(title, description = null, tag = null, due_date = null, 
 	else {
 		taskFolder.taskList ? taskFolder.taskList.push(new_task) : taskFolder.subTasks(new_task);
 	}
-	setStorage();
 }
 
 //Create Task Class

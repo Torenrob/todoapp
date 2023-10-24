@@ -12109,7 +12109,7 @@ body {
 	display: grid;
 	height: 100vh;
 	grid-template-columns: 1fr 3fr 1fr;
-	grid-template-rows: 0.5fr 4fr 0.5fr;
+	grid-template-rows: 0.5fr 5fr 0.25fr;
 	font-family: "quickSand";
 	color: white;
 	caret-color: transparent;
@@ -12118,9 +12118,9 @@ body {
 header {
 	grid-area: 1/1/1/4;
 	display: flex;
-	padding-left: 20px;
+	padding-left: 0px;
 	padding-top: 10px;
-	padding-right: 20px;
+	padding-right: 15px;
 }
 
 header > span {
@@ -12149,15 +12149,35 @@ header > img {
 #newObjBtns {
 	color: var(--10Color);
 	align-self: center;
-	margin-left: 37px;
+	margin-left: 20px;
 	margin-top: 10px;
 	font-weight: bold;
 	font-family: "Space";
 	cursor: pointer;
 }
 
+.inboxColmOneItems {
+	background-color: var(--30Color);
+	color: white;
+	width: 17rem;
+	border-radius: 4px;
+}
+
+.inboxColmOneItems > div {
+	padding: 2px 8px;
+}
+
 main {
 	display: grid;
+	grid-area: 2/1/2/4;
+}
+
+#projTaskNav {
+	display: flex;
+	flex-direction: column;
+	padding-left: 20px;
+	padding-top: 15px;
+	color: var(--30Color);
 }
 
 footer {
@@ -12206,7 +12226,14 @@ input,
 textarea {
 	caret-color: black;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"AAAA;CACC,wBAAwB;CACxB,6DAA0E;AAC3E;;AAEA;CACC,oBAAoB;CACpB,6DAA6E;AAC9E;;AAEA;CACC,sBAAsB;CACtB,6DAA0E;AAC3E;;AAEA;CACC,qBAAqB;CACrB,4CAA+C;AAChD;;AAEA;CACC,gBAAgB;CAChB,kBAAkB;CAClB,kBAAkB;AACnB;;AAEA;CACC,0BAA0B;CAC1B,aAAa;CACb,aAAa;CACb,kCAAkC;CAClC,mCAAmC;CACnC,wBAAwB;CACxB,YAAY;CACZ,wBAAwB;AACzB;;AAEA;CACC,kBAAkB;CAClB,aAAa;CACb,kBAAkB;CAClB,iBAAiB;CACjB,mBAAmB;AACpB;;AAEA;CACC,kBAAkB;CAClB,sBAAsB;CACtB,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,WAAW;CACX,aAAa;CACb,oBAAoB;CACpB,kBAAkB;CAClB,kBAAkB;CAClB,kBAAkB;AACnB;;AAEA;CACC,qBAAqB;CACrB,kBAAkB;CAClB,iBAAiB;CACjB,gBAAgB;CAChB,iBAAiB;CACjB,oBAAoB;CACpB,eAAe;AAChB;;AAEA;CACC,aAAa;AACd;;AAEA;CACC,kBAAkB;CAClB,WAAW;CACX,YAAY;AACb;;AAEA;CACC,aAAa;CACb,mBAAmB;CACnB,uBAAuB;CACvB,eAAe;AAChB;;AAEA;CACC,UAAU;CACV,aAAa;CACb,mBAAmB;CACnB,qBAAqB;CACrB,cAAc;CACd,8BAA8B;CAC9B,gBAAgB;AACjB;;AAEA;CACC,gBAAgB;CAChB,6FAA6F;AAC9F;;AAEA;;CAEC,aAAa;CACb,sBAAsB;CACtB,gCAAgC;CAChC,mBAAmB;CACnB,YAAY;CACZ,YAAY;CACZ,kBAAkB;CAClB,kBAAkB;CAClB,QAAQ;CACR,SAAS;AACV;;AAEA;;CAEC,kBAAkB;AACnB","sourcesContent":["@font-face {\n\tfont-family: \"quickSand\";\n\tsrc: url(../assets/fonts/Quicksand-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Space\";\n\tsrc: url(../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Unbound\";\n\tsrc: url(../assets/fonts/Unbounded-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Lilita\";\n\tsrc: url(../assets/fonts/LilitaOne-Regular.ttf);\n}\n\n:root {\n\t--60Color: black;\n\t--30Color: #2f2f2f;\n\t--10Color: #66bb6a;\n}\n\nbody {\n\tbackground: var(--60Color);\n\tdisplay: grid;\n\theight: 100vh;\n\tgrid-template-columns: 1fr 3fr 1fr;\n\tgrid-template-rows: 0.5fr 4fr 0.5fr;\n\tfont-family: \"quickSand\";\n\tcolor: white;\n\tcaret-color: transparent;\n}\n\nheader {\n\tgrid-area: 1/1/1/4;\n\tdisplay: flex;\n\tpadding-left: 20px;\n\tpadding-top: 10px;\n\tpadding-right: 20px;\n}\n\nheader > span {\n\talign-self: center;\n\tfont-family: \"Unbound\";\n\tfont-size: 40px;\n}\n\n#to2 {\n\tcolor: var(--10Color);\n}\n\nheader > img {\n\theight: 90px;\n}\n\n#settings {\n\twidth: 100%;\n\tdisplay: flex;\n\tjustify-content: end;\n\ttext-align: center;\n\talign-self: center;\n\tmargin-right: 50px;\n}\n\n#newObjBtns {\n\tcolor: var(--10Color);\n\talign-self: center;\n\tmargin-left: 37px;\n\tmargin-top: 10px;\n\tfont-weight: bold;\n\tfont-family: \"Space\";\n\tcursor: pointer;\n}\n\nmain {\n\tdisplay: grid;\n}\n\nfooter {\n\tposition: absolute;\n\tright: 30px;\n\tbottom: 15px;\n}\n\nfooter > span {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tfont-size: 12px;\n}\n\nfooter > span > a {\n\twidth: 27%;\n\tdisplay: flex;\n\talign-items: center;\n\ttext-decoration: none;\n\tcolor: inherit;\n\tjustify-content: space-between;\n\tmargin-left: 4px;\n}\n\nfooter > span > a > img {\n\tmargin-left: 4px;\n\tfilter: invert(68%) sepia(4%) saturate(5571%) hue-rotate(75deg) brightness(95%) contrast(88%);\n}\n\n#newProjEntryBox,\n#newTaskEntryBox {\n\tdisplay: flex;\n\tflex-direction: column;\n\tbackground-color: var(--30Color);\n\theight: fit-content;\n\twidth: 400px;\n\tcolor: white;\n\tborder-radius: 4px;\n\tposition: absolute;\n\ttop: 25%;\n\tleft: 40%;\n}\n\ninput,\ntextarea {\n\tcaret-color: black;\n}\n"],"sourceRoot":""}]);
+
+.colmOneProjList {
+	display: flex;
+	justify-content: space-around;
+	border-bottom: black 2px solid;
+	font-weight: 500;
+}
+`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"AAAA;CACC,wBAAwB;CACxB,6DAA0E;AAC3E;;AAEA;CACC,oBAAoB;CACpB,6DAA6E;AAC9E;;AAEA;CACC,sBAAsB;CACtB,6DAA0E;AAC3E;;AAEA;CACC,qBAAqB;CACrB,4CAA+C;AAChD;;AAEA;CACC,gBAAgB;CAChB,kBAAkB;CAClB,kBAAkB;AACnB;;AAEA;CACC,0BAA0B;CAC1B,aAAa;CACb,aAAa;CACb,kCAAkC;CAClC,oCAAoC;CACpC,wBAAwB;CACxB,YAAY;CACZ,wBAAwB;AACzB;;AAEA;CACC,kBAAkB;CAClB,aAAa;CACb,iBAAiB;CACjB,iBAAiB;CACjB,mBAAmB;AACpB;;AAEA;CACC,kBAAkB;CAClB,sBAAsB;CACtB,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,WAAW;CACX,aAAa;CACb,oBAAoB;CACpB,kBAAkB;CAClB,kBAAkB;CAClB,kBAAkB;AACnB;;AAEA;CACC,qBAAqB;CACrB,kBAAkB;CAClB,iBAAiB;CACjB,gBAAgB;CAChB,iBAAiB;CACjB,oBAAoB;CACpB,eAAe;AAChB;;AAEA;CACC,gCAAgC;CAChC,YAAY;CACZ,YAAY;CACZ,kBAAkB;AACnB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,aAAa;CACb,kBAAkB;AACnB;;AAEA;CACC,aAAa;CACb,sBAAsB;CACtB,kBAAkB;CAClB,iBAAiB;CACjB,qBAAqB;AACtB;;AAEA;CACC,kBAAkB;CAClB,WAAW;CACX,YAAY;AACb;;AAEA;CACC,aAAa;CACb,mBAAmB;CACnB,uBAAuB;CACvB,eAAe;AAChB;;AAEA;CACC,UAAU;CACV,aAAa;CACb,mBAAmB;CACnB,qBAAqB;CACrB,cAAc;CACd,8BAA8B;CAC9B,gBAAgB;AACjB;;AAEA;CACC,gBAAgB;CAChB,6FAA6F;AAC9F;;AAEA;;CAEC,aAAa;CACb,sBAAsB;CACtB,gCAAgC;CAChC,mBAAmB;CACnB,YAAY;CACZ,YAAY;CACZ,kBAAkB;CAClB,kBAAkB;CAClB,QAAQ;CACR,SAAS;AACV;;AAEA;;CAEC,kBAAkB;AACnB;;AAEA;CACC,aAAa;CACb,6BAA6B;CAC7B,8BAA8B;CAC9B,gBAAgB;AACjB","sourcesContent":["@font-face {\n\tfont-family: \"quickSand\";\n\tsrc: url(../assets/fonts/Quicksand-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Space\";\n\tsrc: url(../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Unbound\";\n\tsrc: url(../assets/fonts/Unbounded-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Lilita\";\n\tsrc: url(../assets/fonts/LilitaOne-Regular.ttf);\n}\n\n:root {\n\t--60Color: black;\n\t--30Color: #2f2f2f;\n\t--10Color: #66bb6a;\n}\n\nbody {\n\tbackground: var(--60Color);\n\tdisplay: grid;\n\theight: 100vh;\n\tgrid-template-columns: 1fr 3fr 1fr;\n\tgrid-template-rows: 0.5fr 5fr 0.25fr;\n\tfont-family: \"quickSand\";\n\tcolor: white;\n\tcaret-color: transparent;\n}\n\nheader {\n\tgrid-area: 1/1/1/4;\n\tdisplay: flex;\n\tpadding-left: 0px;\n\tpadding-top: 10px;\n\tpadding-right: 15px;\n}\n\nheader > span {\n\talign-self: center;\n\tfont-family: \"Unbound\";\n\tfont-size: 40px;\n}\n\n#to2 {\n\tcolor: var(--10Color);\n}\n\nheader > img {\n\theight: 90px;\n}\n\n#settings {\n\twidth: 100%;\n\tdisplay: flex;\n\tjustify-content: end;\n\ttext-align: center;\n\talign-self: center;\n\tmargin-right: 50px;\n}\n\n#newObjBtns {\n\tcolor: var(--10Color);\n\talign-self: center;\n\tmargin-left: 20px;\n\tmargin-top: 10px;\n\tfont-weight: bold;\n\tfont-family: \"Space\";\n\tcursor: pointer;\n}\n\n.inboxColmOneItems {\n\tbackground-color: var(--30Color);\n\tcolor: white;\n\twidth: 17rem;\n\tborder-radius: 4px;\n}\n\n.inboxColmOneItems > div {\n\tpadding: 2px 8px;\n}\n\nmain {\n\tdisplay: grid;\n\tgrid-area: 2/1/2/4;\n}\n\n#projTaskNav {\n\tdisplay: flex;\n\tflex-direction: column;\n\tpadding-left: 20px;\n\tpadding-top: 15px;\n\tcolor: var(--30Color);\n}\n\nfooter {\n\tposition: absolute;\n\tright: 30px;\n\tbottom: 15px;\n}\n\nfooter > span {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tfont-size: 12px;\n}\n\nfooter > span > a {\n\twidth: 27%;\n\tdisplay: flex;\n\talign-items: center;\n\ttext-decoration: none;\n\tcolor: inherit;\n\tjustify-content: space-between;\n\tmargin-left: 4px;\n}\n\nfooter > span > a > img {\n\tmargin-left: 4px;\n\tfilter: invert(68%) sepia(4%) saturate(5571%) hue-rotate(75deg) brightness(95%) contrast(88%);\n}\n\n#newProjEntryBox,\n#newTaskEntryBox {\n\tdisplay: flex;\n\tflex-direction: column;\n\tbackground-color: var(--30Color);\n\theight: fit-content;\n\twidth: 400px;\n\tcolor: white;\n\tborder-radius: 4px;\n\tposition: absolute;\n\ttop: 25%;\n\tleft: 40%;\n}\n\ninput,\ntextarea {\n\tcaret-color: black;\n}\n\n.colmOneProjList {\n\tdisplay: flex;\n\tjustify-content: space-around;\n\tborder-bottom: black 2px solid;\n\tfont-weight: 500;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12796,155 +12823,6 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
-/***/ "./src/scripts/index.js":
-/*!******************************!*\
-  !*** ./src/scripts/index.js ***!
-  \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   independentTasks: () => (/* binding */ independentTasks),
-/* harmony export */   projectList: () => (/* binding */ projectList)
-/* harmony export */ });
-/* harmony import */ var _project_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project_class */ "./src/scripts/project_class.js");
-/* harmony import */ var _task_class__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task_class */ "./src/scripts/task_class.js");
-/* harmony import */ var _styles_reset_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/reset.css */ "./src/styles/reset.css");
-/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/main.css */ "./src/styles/main.css");
-/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../styles/style.css */ "./src/styles/style.css");
-/* harmony import */ var _assets_images_reshot_icon_dog_face_YE7643ZXK5_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/images/reshot-icon-dog-face-YE7643ZXK5.svg */ "./src/assets/images/reshot-icon-dog-face-YE7643ZXK5.svg");
-/* harmony import */ var _assets_images_iconmonstr_github_3_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/images/iconmonstr-github-3.svg */ "./src/assets/images/iconmonstr-github-3.svg");
-
-
-
-
-
-
-
-
-//Store DOM targets
-const toDoDisplay = document.getElementById("toDoDisplay");
-const kano = document.getElementById("kanoLogo");
-const github = document.getElementById("githubLogo");
-const cancelCreateBtns = document.getElementsByClassName("cancelCreateBtn");
-const projTaskNav = document.getElementById("projTaskNav");
-const prioritySelect = document.getElementsByClassName("prioritySelect");
-const newProjectBtn = document.getElementById("newProject");
-const newProjBox = document.getElementById("newProjEntryBox");
-const newTaskBtn = document.getElementById("newTask");
-const newTaskBox = document.getElementById("newTaskEntryBox");
-const newProjForm = document.getElementById("newProjForm");
-const newTaskForm = document.getElementById("newTaskForm");
-
-newProjForm.addEventListener("submit", (x) => {
-	x.preventDefault();
-	newProjSubmit(x);
-	cancelCreateObj();
-});
-
-newTaskForm.addEventListener("submit", (x) => {
-	x.preventDefault();
-	newTaskSubmit(x);
-	cancelCreateObj();
-});
-
-//Set page images
-kano.setAttribute("src", _assets_images_reshot_icon_dog_face_YE7643ZXK5_svg__WEBPACK_IMPORTED_MODULE_5__);
-github.setAttribute("src", _assets_images_iconmonstr_github_3_svg__WEBPACK_IMPORTED_MODULE_6__);
-
-//Initiate object to manage projects
-let projectList = [];
-
-//Initiate object to manage independent tasks
-let independentTasks = [];
-
-newTaskBtn.addEventListener("click", newTaskDialogue);
-function newTaskDialogue() {
-	newTaskBox.style.visibility = "visible";
-	newProjBox.style.visibility = "hidden";
-}
-
-newProjectBtn.addEventListener("click", newProjDialogue);
-function newProjDialogue() {
-	newProjBox.style.visibility = "visible";
-	newTaskBox.style.visibility = "hidden";
-}
-
-function cancelCreateObj() {
-	newTaskBox.style.visibility = "hidden";
-	newProjBox.style.visibility = "hidden";
-}
-
-Array.from(cancelCreateBtns).forEach((x) => {
-	x.addEventListener("click", cancelCreateObj);
-});
-
-//Sort function
-function sortList(listToSort, propertySortBy, ascDesc) {
-	listToSort.sort((a, b) => {
-		let aValue = a[propertySortBy];
-		let bValue = b[propertySortBy];
-		if (aValue > bValue) {
-			return 1 * ascDesc;
-		} else if (aValue < bValue) {
-			return -1 * ascDesc;
-		} else {
-			return 0;
-		}
-	});
-}
-
-Array.from(prioritySelect).forEach((x) => {
-	x.addEventListener("change", changePriorityColor);
-});
-function changePriorityColor(x) {
-	Array.from(prioritySelect).forEach((a) => {
-		switch (a.value) {
-			case "Low":
-				a.style.backgroundColor = "green";
-				break;
-			case "Medium":
-				a.style.backgroundColor = "orange";
-				break;
-			case "High":
-				a.style.backgroundColor = "red";
-				break;
-		}
-	});
-}
-
-function newProjSubmit(x) {
-	let projInfo = x.target;
-	(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.newProject)(projInfo[0].value, projInfo[1].value, projInfo[4].value, projInfo[2], projInfo[3].value, projInfo[5].value);
-	setStorage();
-}
-
-function newTaskSubmit(x) {
-	let taskInfo = x.target;
-	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.newTask)(taskInfo[0].value, taskInfo[1].value, taskInfo[4].value, taskInfo[2].value, taskInfo[3].value, taskInfo[5].value);
-	setStorage();
-}
-
-//Save to local storage when projects/tasks CRUD
-function setStorage() {
-	localStorage.setItem("savedProjectList", JSON.stringify(projectList));
-	localStorage.setItem("savedIndependentTasks", JSON.stringify(independentTasks));
-}
-
-// Load local storage data and reapply methods to objects
-(function loadLocalStorage() {
-	projectList = localStorage.getItem("savedProjectList") ? JSON.parse(localStorage.getItem("savedProjectList")) : [];
-
-	projectList.forEach((proj) => (0,_project_class__WEBPACK_IMPORTED_MODULE_0__.addProjMethods)(proj));
-
-	independentTasks = localStorage.getItem("savedIndependentTasks") ? JSON.parse(localStorage.getItem("savedIndependentTasks")) : [];
-
-	independentTasks.forEach((task) => (0,_task_class__WEBPACK_IMPORTED_MODULE_1__.addTaskMethods)(task));
-})();
-
-
-/***/ }),
-
 /***/ "./src/scripts/project_class.js":
 /*!**************************************!*\
   !*** ./src/scripts/project_class.js ***!
@@ -12955,14 +12833,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Project: () => (/* binding */ Project),
 /* harmony export */   addProjMethods: () => (/* binding */ addProjMethods),
-/* harmony export */   newProject: () => (/* binding */ newProject)
+/* harmony export */   newProject: () => (/* binding */ newProject),
+/* harmony export */   projectList: () => (/* binding */ projectList)
 /* harmony export */ });
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/scripts/index.js");
-
+let projectList = [];
 
 //Create new project
 function newProject(title, description = null, tag = null, due_date = null, due_time = null, priority = null, users = null, teams = null, ...tasks) {
-	_index__WEBPACK_IMPORTED_MODULE_0__.projectList.push(new Project(title, description, tag, due_date, due_time, priority, users, teams, ...tasks));
+	projectList.push(new Project(title, description, tag, due_date, due_time, priority, users, teams, ...tasks));
 }
 
 //Create Project class
@@ -12972,7 +12850,7 @@ class Project {
 		this.description = description == "" ? null : description;
 		this.tag = tag == "" ? null : tag;
 		if (due_date != "" && due_time != "") {
-			this.dueDateTime = new Date(`${due_date}T${due_time}`);
+			this.dueDateTime = new Date(`${due_date}` + "T" + `${due_time}`);
 		} else {
 			this.dueDateTime = due_date != "" ? new Date(due_date) : null;
 		}
@@ -13046,13 +12924,14 @@ function addProjMethods(thisProject) {
 	};
 
 	thisProject.delete = function () {
-		_index__WEBPACK_IMPORTED_MODULE_0__.projectList.splice(_index__WEBPACK_IMPORTED_MODULE_0__.projectList.indexOf(this), 1);
+		projectList.splice(projectList.indexOf(this), 1);
 	};
 
+	console.log(thisProject);
 	//If project has tasklist add methods to those tasks
-	if (thisProject.taskList.length > 0) {
-		thisProject.taskList.forEach((x) => addTaskMethods(x));
-	}
+	// if (thisProject.taskList.length > 0) {
+	// 	thisProject.taskList.forEach((x) => addTaskMethods(x));
+	// }
 }
 
 
@@ -13068,10 +12947,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Task: () => (/* binding */ Task),
 /* harmony export */   addTaskMethods: () => (/* binding */ addTaskMethods),
+/* harmony export */   independentTasks: () => (/* binding */ independentTasks),
 /* harmony export */   newTask: () => (/* binding */ newTask)
 /* harmony export */ });
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/scripts/index.js");
-
+let independentTasks = [];
 
 //Create new task
 function newTask(title, description = null, tag = null, due_date = null, due_time = null, priority = null, users = null, teams = null, taskFolder = null) {
@@ -13079,12 +12958,11 @@ function newTask(title, description = null, tag = null, due_date = null, due_tim
 	//Check if task being added to existing project
 	if (!taskFolder) {
 		//If no existing project add task to independent task list
-		_index__WEBPACK_IMPORTED_MODULE_0__.independentTasks.push(new_task);
+		independentTasks.push(new_task);
 	} //If there is an existing project add to project task list
 	else {
 		taskFolder.taskList ? taskFolder.taskList.push(new_task) : taskFolder.subTasks(new_task);
 	}
-	setStorage();
 }
 
 //Create Task Class
@@ -13121,7 +12999,7 @@ function addTaskMethods(task) {
 		this.teams = teams;
 		this.subTasks = subTasks;
 
-		if (!_index__WEBPACK_IMPORTED_MODULE_0__.independentTasks.includes(task)) {
+		if (!independentTasks.includes(task)) {
 			projectList.forEach((prj) => {
 				if (prj.taskList.includes(task)) {
 					prj.recalcCompletion();
@@ -13146,8 +13024,8 @@ function addTaskMethods(task) {
 	};
 
 	task.delete = function () {
-		if (_index__WEBPACK_IMPORTED_MODULE_0__.independentTasks.includes(this)) {
-			_index__WEBPACK_IMPORTED_MODULE_0__.independentTasks.splice(_index__WEBPACK_IMPORTED_MODULE_0__.independentTasks.indexOf(this), 1);
+		if (independentTasks.includes(this)) {
+			independentTasks.splice(independentTasks.indexOf(this), 1);
 		} else {
 			projectList.forEach((prj) => {
 				if (prj.taskList.includes(this)) {
@@ -13564,12 +13442,195 @@ module.exports = __webpack_require__.p + "2cb7513d7315bcc02c0c.svg";
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/scripts/index.js");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!******************************!*\
+  !*** ./src/scripts/index.js ***!
+  \******************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   projTaskNav: () => (/* binding */ projTaskNav)
+/* harmony export */ });
+/* harmony import */ var _project_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project_class */ "./src/scripts/project_class.js");
+/* harmony import */ var _task_class__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task_class */ "./src/scripts/task_class.js");
+/* harmony import */ var _styles_reset_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/reset.css */ "./src/styles/reset.css");
+/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/main.css */ "./src/styles/main.css");
+/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../styles/style.css */ "./src/styles/style.css");
+/* harmony import */ var _assets_images_reshot_icon_dog_face_YE7643ZXK5_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/images/reshot-icon-dog-face-YE7643ZXK5.svg */ "./src/assets/images/reshot-icon-dog-face-YE7643ZXK5.svg");
+/* harmony import */ var _assets_images_iconmonstr_github_3_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/images/iconmonstr-github-3.svg */ "./src/assets/images/iconmonstr-github-3.svg");
+
+
+
+
+
+
+
+
+//Store DOM targets
+const kano = document.getElementById("kanoLogo");
+const github = document.getElementById("githubLogo");
+const cancelCreateBtns = document.getElementsByClassName("cancelCreateBtn");
+const projTaskNav = document.getElementById("projTaskNav");
+const prioritySelect = document.getElementsByClassName("prioritySelect");
+const newProjectBtn = document.getElementById("newProject");
+const newProjBox = document.getElementById("newProjEntryBox");
+const newTaskBtn = document.getElementById("newTask");
+const newTaskBox = document.getElementById("newTaskEntryBox");
+const newProjForm = document.getElementById("newProjForm");
+const newTaskForm = document.getElementById("newTaskForm");
+const colmOneItems = document.getElementsByClassName("inboxColmOneItems");
+const colmOneProjList = document.getElementById("projectListDiv");
+
+// Load local storage data and reapply methods to objects
+(function loadLocalStorage() {
+	JSON.parse(localStorage.getItem("savedProjectList")).forEach((x) => _project_class__WEBPACK_IMPORTED_MODULE_0__.projectList.push(x));
+
+	_project_class__WEBPACK_IMPORTED_MODULE_0__.projectList.forEach((proj) => {
+		(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.addProjMethods)(proj);
+	});
+
+	JSON.parse(localStorage.getItem("savedIndependentTasks")).forEach((x) => _task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks.push(x));
+
+	_task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks.forEach((task) => (0,_task_class__WEBPACK_IMPORTED_MODULE_1__.addTaskMethods)(task));
+	updateTaskProjDisplay();
+})();
+
+newProjForm.addEventListener("submit", (x) => {
+	x.preventDefault();
+	newProjSubmit(x);
+	updateTaskProjDisplay();
+	cancelCreateObj();
+});
+
+newTaskForm.addEventListener("submit", (x) => {
+	x.preventDefault();
+	newTaskSubmit(x);
+	updateTaskProjDisplay();
+	cancelCreateObj();
+});
+
+//Set page images
+kano.setAttribute("src", _assets_images_reshot_icon_dog_face_YE7643ZXK5_svg__WEBPACK_IMPORTED_MODULE_5__);
+github.setAttribute("src", _assets_images_iconmonstr_github_3_svg__WEBPACK_IMPORTED_MODULE_6__);
+
+function updateTaskProjDisplay() {
+	_project_class__WEBPACK_IMPORTED_MODULE_0__.projectList.forEach((x) => {
+		let projDiv = document.createElement("div");
+		projDiv.setAttribute("class", "colmOneProjList");
+		let priority = document.createElement("div");
+		priority.style.alignSelf = "center";
+		let title = document.createElement("span");
+		let dueDate = document.createElement("span");
+
+		priority.style.width = "8px";
+		priority.style.height = "8px";
+		priority.style.borderRadius = "4px";
+		switch (x.priority) {
+			case "Low":
+				priority.style.backgroundColor = "green";
+				break;
+			case "Medium":
+				priority.style.backgroundColor = "orange";
+				break;
+			case "High":
+				priority.style.backgroundColor = "red";
+				break;
+		}
+		title.textContent = x.title;
+		dueDate.textContent = x.dueDateTime ? x.dueDateTime.toLocaleDateString() : "No Due Date";
+
+		projDiv.append(priority, title, dueDate);
+		colmOneProjList.append(projDiv);
+	});
+}
+newTaskBtn.addEventListener("click", newTaskDialogue);
+function newTaskDialogue() {
+	newTaskBox.style.visibility = "visible";
+	newProjBox.style.visibility = "hidden";
+}
+
+newProjectBtn.addEventListener("click", newProjDialogue);
+function newProjDialogue() {
+	newProjBox.style.visibility = "visible";
+	newTaskBox.style.visibility = "hidden";
+}
+
+function cancelCreateObj() {
+	newTaskBox.style.visibility = "hidden";
+	newProjBox.style.visibility = "hidden";
+}
+
+Array.from(cancelCreateBtns).forEach((x) => {
+	x.addEventListener("click", cancelCreateObj);
+});
+
+//Sort function
+function sortList(listToSort, propertySortBy, ascDesc) {
+	listToSort.sort((a, b) => {
+		let aValue = a[propertySortBy];
+		let bValue = b[propertySortBy];
+		if (aValue > bValue) {
+			return 1 * ascDesc;
+		} else if (aValue < bValue) {
+			return -1 * ascDesc;
+		} else {
+			return 0;
+		}
+	});
+}
+
+Array.from(prioritySelect).forEach((x) => {
+	x.addEventListener("change", changePriorityColor);
+});
+function changePriorityColor(x) {
+	Array.from(prioritySelect).forEach((a) => {
+		switch (a.value) {
+			case "Low":
+				a.style.backgroundColor = "green";
+				break;
+			case "Medium":
+				a.style.backgroundColor = "orange";
+				break;
+			case "High":
+				a.style.backgroundColor = "red";
+				break;
+		}
+	});
+}
+
+function newProjSubmit(x) {
+	let projInfo = x.target;
+	console.log(projInfo[2].value, projInfo[3].value);
+	(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.newProject)(projInfo[0].value, projInfo[1].value, projInfo[4].value, projInfo[2], projInfo[3].value, projInfo[5].value);
+	setStorage();
+}
+
+function newTaskSubmit(x) {
+	let taskInfo = x.target;
+	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.newTask)(taskInfo[0].value, taskInfo[1].value, taskInfo[4].value, taskInfo[2].value, taskInfo[3].value, taskInfo[5].value);
+	setStorage();
+}
+
+//Format "empty" div when no tasks/projs
+Array.from(colmOneItems).forEach((x) => {
+	if (x.childElementCount == 0) {
+		let emptyNode = document.createElement("div");
+		emptyNode.textContent = "Empty";
+		emptyNode.style.color = "black";
+		emptyNode.style.fontWeight = "500";
+		x.append(emptyNode);
+	}
+});
+
+//Save to local storage when projects/tasks CRUD
+function setStorage() {
+	localStorage.setItem("savedProjectList", JSON.stringify(_project_class__WEBPACK_IMPORTED_MODULE_0__.projectList));
+	localStorage.setItem("savedIndependentTasks", JSON.stringify(_task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks));
+}
+
+})();
+
 /******/ })()
 ;
 //# sourceMappingURL=main.js.map

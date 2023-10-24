@@ -1,4 +1,4 @@
-import { projectList } from "./index";
+export let projectList = [];
 
 //Create new project
 export function newProject(title, description = null, tag = null, due_date = null, due_time = null, priority = null, users = null, teams = null, ...tasks) {
@@ -12,7 +12,7 @@ export class Project {
 		this.description = description == "" ? null : description;
 		this.tag = tag == "" ? null : tag;
 		if (due_date != "" && due_time != "") {
-			this.dueDateTime = new Date(`${due_date}T${due_time}`);
+			this.dueDateTime = new Date(`${due_date}` + "T" + `${due_time}`);
 		} else {
 			this.dueDateTime = due_date != "" ? new Date(due_date) : null;
 		}
@@ -89,8 +89,9 @@ export function addProjMethods(thisProject) {
 		projectList.splice(projectList.indexOf(this), 1);
 	};
 
+	console.log(thisProject);
 	//If project has tasklist add methods to those tasks
-	if (thisProject.taskList.length > 0) {
-		thisProject.taskList.forEach((x) => addTaskMethods(x));
-	}
+	// if (thisProject.taskList.length > 0) {
+	// 	thisProject.taskList.forEach((x) => addTaskMethods(x));
+	// }
 }

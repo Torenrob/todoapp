@@ -1,5 +1,5 @@
-import { Project, newProject, addProjMethods } from "./project_class";
-import { Task, newTask, addTaskMethods } from "./task_class";
+import { projectList, Project, newProject, addProjMethods } from "./project_class";
+import { independentTasks, Task, newTask, addTaskMethods } from "./task_class";
 import "../styles/reset.css";
 import "../styles/main.css";
 import "../styles/style.css";
@@ -7,11 +7,10 @@ import kanoLogo from "../assets/images/reshot-icon-dog-face-YE7643ZXK5.svg";
 import githubLogo from "../assets/images/iconmonstr-github-3.svg";
 
 //Store DOM targets
-const toDoDisplay = document.getElementById("toDoDisplay");
 const kano = document.getElementById("kanoLogo");
 const github = document.getElementById("githubLogo");
 const cancelCreateBtns = document.getElementsByClassName("cancelCreateBtn");
-const projTaskNav = document.getElementById("projTaskNav");
+export const projTaskNav = document.getElementById("projTaskNav");
 const prioritySelect = document.getElementsByClassName("prioritySelect");
 const newProjectBtn = document.getElementById("newProject");
 const newProjBox = document.getElementById("newProjEntryBox");
@@ -19,16 +18,34 @@ const newTaskBtn = document.getElementById("newTask");
 const newTaskBox = document.getElementById("newTaskEntryBox");
 const newProjForm = document.getElementById("newProjForm");
 const newTaskForm = document.getElementById("newTaskForm");
+const colmOneItems = document.getElementsByClassName("inboxColmOneItems");
+const colmOneProjList = document.getElementById("projectListDiv");
+
+// Load local storage data and reapply methods to objects
+(function loadLocalStorage() {
+	JSON.parse(localStorage.getItem("savedProjectList")).forEach((x) => projectList.push(x));
+
+	projectList.forEach((proj) => {
+		addProjMethods(proj);
+	});
+
+	JSON.parse(localStorage.getItem("savedIndependentTasks")).forEach((x) => independentTasks.push(x));
+
+	independentTasks.forEach((task) => addTaskMethods(task));
+	updateTaskProjDisplay();
+})();
 
 newProjForm.addEventListener("submit", (x) => {
 	x.preventDefault();
 	newProjSubmit(x);
+	updateTaskProjDisplay();
 	cancelCreateObj();
 });
 
 newTaskForm.addEventListener("submit", (x) => {
 	x.preventDefault();
 	newTaskSubmit(x);
+	updateTaskProjDisplay();
 	cancelCreateObj();
 });
 
@@ -36,12 +53,36 @@ newTaskForm.addEventListener("submit", (x) => {
 kano.setAttribute("src", kanoLogo);
 github.setAttribute("src", githubLogo);
 
-//Initiate object to manage projects
-export let projectList = [];
+function updateTaskProjDisplay() {
+	projectList.forEach((x) => {
+		let projDiv = document.createElement("div");
+		projDiv.setAttribute("class", "colmOneProjList");
+		let priority = document.createElement("div");
+		priority.style.alignSelf = "center";
+		let title = document.createElement("span");
+		let dueDate = document.createElement("span");
 
-//Initiate object to manage independent tasks
-export let independentTasks = [];
+		priority.style.width = "8px";
+		priority.style.height = "8px";
+		priority.style.borderRadius = "4px";
+		switch (x.priority) {
+			case "Low":
+				priority.style.backgroundColor = "green";
+				break;
+			case "Medium":
+				priority.style.backgroundColor = "orange";
+				break;
+			case "High":
+				priority.style.backgroundColor = "red";
+				break;
+		}
+		title.textContent = x.title;
+		dueDate.textContent = x.dueDateTime ? x.dueDateTime.toLocaleDateString() : "No Due Date";
 
+		projDiv.append(priority, title, dueDate);
+		colmOneProjList.append(projDiv);
+	});
+}
 newTaskBtn.addEventListener("click", newTaskDialogue);
 function newTaskDialogue() {
 	newTaskBox.style.visibility = "visible";
@@ -99,6 +140,7 @@ function changePriorityColor(x) {
 
 function newProjSubmit(x) {
 	let projInfo = x.target;
+	console.log(projInfo[2].value, projInfo[3].value);
 	newProject(projInfo[0].value, projInfo[1].value, projInfo[4].value, projInfo[2], projInfo[3].value, projInfo[5].value);
 	setStorage();
 }
@@ -109,19 +151,19 @@ function newTaskSubmit(x) {
 	setStorage();
 }
 
+//Format "empty" div when no tasks/projs
+Array.from(colmOneItems).forEach((x) => {
+	if (x.childElementCount == 0) {
+		let emptyNode = document.createElement("div");
+		emptyNode.textContent = "Empty";
+		emptyNode.style.color = "black";
+		emptyNode.style.fontWeight = "500";
+		x.append(emptyNode);
+	}
+});
+
 //Save to local storage when projects/tasks CRUD
 function setStorage() {
 	localStorage.setItem("savedProjectList", JSON.stringify(projectList));
 	localStorage.setItem("savedIndependentTasks", JSON.stringify(independentTasks));
 }
-
-// Load local storage data and reapply methods to objects
-(function loadLocalStorage() {
-	projectList = localStorage.getItem("savedProjectList") ? JSON.parse(localStorage.getItem("savedProjectList")) : [];
-
-	projectList.forEach((proj) => addProjMethods(proj));
-
-	independentTasks = localStorage.getItem("savedIndependentTasks") ? JSON.parse(localStorage.getItem("savedIndependentTasks")) : [];
-
-	independentTasks.forEach((task) => addTaskMethods(task));
-})();

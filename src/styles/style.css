@@ -29,7 +29,7 @@ body {
 	display: grid;
 	height: 100vh;
 	grid-template-columns: 1fr 3fr 1fr;
-	grid-template-rows: 0.5fr 4fr 0.5fr;
+	grid-template-rows: 0.5fr 5fr 0.25fr;
 	font-family: "quickSand";
 	color: white;
 	caret-color: transparent;
@@ -38,9 +38,9 @@ body {
 header {
 	grid-area: 1/1/1/4;
 	display: flex;
-	padding-left: 20px;
+	padding-left: 0px;
 	padding-top: 10px;
-	padding-right: 20px;
+	padding-right: 15px;
 }
 
 header > span {
@@ -69,15 +69,35 @@ header > img {
 #newObjBtns {
 	color: var(--10Color);
 	align-self: center;
-	margin-left: 37px;
+	margin-left: 20px;
 	margin-top: 10px;
 	font-weight: bold;
 	font-family: "Space";
 	cursor: pointer;
 }
 
+.inboxColmOneItems {
+	background-color: var(--30Color);
+	color: white;
+	width: 17rem;
+	border-radius: 4px;
+}
+
+.inboxColmOneItems > div {
+	padding: 2px 8px;
+}
+
 main {
 	display: grid;
+	grid-area: 2/1/2/4;
+}
+
+#projTaskNav {
+	display: flex;
+	flex-direction: column;
+	padding-left: 20px;
+	padding-top: 15px;
+	color: var(--30Color);
 }
 
 footer {
@@ -125,4 +145,11 @@ footer > span > a > img {
 input,
 textarea {
 	caret-color: black;
+}
+
+.colmOneProjList {
+	display: flex;
+	justify-content: space-around;
+	border-bottom: black 2px solid;
+	font-weight: 500;
 }
