@@ -17,8 +17,8 @@ const newTaskBtn = document.getElementById("newTask");
 const newTaskBox = document.getElementById("newTaskEntryBox");
 const newProjForm = document.getElementById("newProjForm");
 const newTaskForm = document.getElementById("newTaskForm");
-const colmOneItems = document.getElementsByClassName("inboxColmOneItems");
-let colmOneListItemArr;
+const itemsList = document.getElementsByClassName("itemsList");
+const projTaskDisplay = document.getElementById("projTaskDisplay");
 
 // Load local storage data and reapply methods to objects
 (function loadLocalStorage() {
@@ -37,6 +37,7 @@ let colmOneListItemArr;
 	independentTasks.forEach((task) => addTaskMethods(task));
 	updateProjDisplay();
 	updateIndependentTaskDisplay();
+	colmOneItemClick();
 })();
 
 newProjForm.addEventListener("submit", (x) => {
@@ -44,6 +45,7 @@ newProjForm.addEventListener("submit", (x) => {
 	newProjSubmit(x);
 	updateProjDisplay();
 	cancelCreateObj();
+	x.target.reset();
 });
 
 newTaskForm.addEventListener("submit", (x) => {
@@ -51,6 +53,7 @@ newTaskForm.addEventListener("submit", (x) => {
 	newTaskSubmit(x);
 	updateIndependentTaskDisplay();
 	cancelCreateObj();
+	x.target.reset();
 });
 
 //Set page images
@@ -62,12 +65,16 @@ newTaskBtn.addEventListener("click", newTaskDialogue);
 function newTaskDialogue() {
 	newTaskBox.style.visibility = "visible";
 	newProjBox.style.visibility = "hidden";
+	let priority = newTaskBox.children[0].children[4].children[1].children[1];
+	priority.style.backgroundColor = "green";
 }
 
 newProjectBtn.addEventListener("click", newProjDialogue);
 function newProjDialogue() {
 	newProjBox.style.visibility = "visible";
 	newTaskBox.style.visibility = "hidden";
+	let priority = newProjBox.children[0].children[4].children[1].children[1];
+	priority.style.backgroundColor = "green";
 }
 
 function cancelCreateObj() {
@@ -94,27 +101,25 @@ function sortList(listToSort, propertySortBy, ascDesc) {
 	});
 }
 
-Array.from(prioritySelect).forEach((x) => {
-	x.addEventListener("change", changePriorityColor);
+Array.from(prioritySelect).forEach((priority) => {
+	priority.addEventListener("change", (x) => changePriorityColor(priority));
 });
-function changePriorityColor(x) {
-	Array.from(prioritySelect).forEach((a) => {
-		switch (a.value) {
-			case "Low":
-				a.style.backgroundColor = "green";
-				break;
-			case "Medium":
-				a.style.backgroundColor = "orange";
-				break;
-			case "High":
-				a.style.backgroundColor = "red";
-				break;
-		}
-	});
+function changePriorityColor(a) {
+	switch (a.value) {
+		case "Low":
+			a.style.backgroundColor = "green";
+			break;
+		case "Medium":
+			a.style.backgroundColor = "orange";
+			break;
+		case "High":
+			a.style.backgroundColor = "red";
+			break;
+	}
 }
 
 //Format "empty" div when no tasks/projs
-Array.from(colmOneItems).forEach((x) => {
+Array.from(itemsList).forEach((x) => {
 	if (x.childElementCount == 0) {
 		let emptyNode = document.createElement("div");
 		emptyNode.textContent = "None";
@@ -128,4 +133,126 @@ Array.from(colmOneItems).forEach((x) => {
 export function setStorage() {
 	localStorage.setItem("savedProjectList", JSON.stringify(projectList));
 	localStorage.setItem("savedIndependentTasks", JSON.stringify(independentTasks));
+}
+
+//Make List Display of Projects/Tasks
+export function makeProjTaskListDisplay(x, targetDiv, type) {
+	let projDiv = document.createElement("div");
+	projDiv.classList.add("itemsList", "unselected");
+	let priority = document.createElement("div");
+	priority.setAttribute("class", "colmOnePriority");
+	let title = document.createElement("span");
+	let dueDate = document.createElement("span");
+	dueDate.setAttribute("class", "colmOneDueDate");
+	let openArrow = document.createElement("span");
+	openArrow.textContent = ">";
+	openArrow.setAttribute("class", "openArrow");
+	let objID = document.createElement("span");
+	objID.style.visibility = "hidden";
+	objID.style.position = "absolute";
+
+	priority.style.width = "8px";
+	priority.style.height = "8px";
+	priority.style.borderRadius = "4px";
+	switch (x.priority) {
+		case "Low":
+			priority.style.backgroundColor = "green";
+			break;
+		case "Medium":
+			priority.style.backgroundColor = "orange";
+			break;
+		case "High":
+			priority.style.backgroundColor = "red";
+			break;
+	}
+	title.textContent = x.title;
+	console.log();
+	dueDate.textContent = x.dueDateTime ? new Date(x.dueDateTime).toLocaleDateString() : "No Due Date";
+	dueDate.append(openArrow);
+
+	if (type === "task") {
+		objID.textContent = `task ${independentTasks.indexOf(x)}`;
+	} else if (type === "project") {
+		objID.textContent = `project ${projectList.indexOf(x)}`;
+	}
+
+	projDiv.append(priority, title, dueDate, objID);
+	targetDiv.appendChild(projDiv);
+}
+
+// Watch Column One Items for Click to Open details
+export function colmOneItemClick() {
+	let colmOneListItems = document.getElementsByClassName("colmOneListItems");
+
+	Array.from(itemsList).forEach((listItem) => {
+		listItem.addEventListener("click", (x) => {
+			Array.from(itemsList).forEach((n) => {
+				n.classList.remove("selected");
+				n.classList.add("unselected");
+			});
+			listItem.classList.add("selected");
+			listItem.classList.remove("unselected");
+			mkColmTwoDisplay(listItem);
+		});
+	});
+}
+
+function mkColmTwoDisplay(listItem) {
+	projTaskDisplay.innerHTML = "";
+
+	let colmTwoDisplay = document.createElement("div");
+	colmTwoDisplay.setAttribute("id", "colmTwoDisplay");
+	let colmTwoTitle = document.createElement("div");
+	colmTwoTitle.setAttribute("id", "colmTwoTitle");
+	let colmTwoPriority = document.createElement("span");
+	colmTwoPriority.setAttribute("id", "colmTwoPriority");
+	let colmTwoTag = document.createElement("id", "span");
+	colmTwoTag.setAttribute("id", "colmTwoTag");
+	let colmTwoDueDate = document.createElement("div");
+	colmTwoDueDate.setAttribute("id", "colmTwoDueDate");
+	let colmTwoDescription = document.createElement("p");
+	colmTwoDescription.setAttribute("id", "colmTwoDescription");
+	let colmTwoTasksList = document.createElement("div");
+	colmTwoTasksList.setAttribute("id", "colmTwoTasksList");
+
+	let objKey = listItem.children[3].textContent;
+	let targetObj;
+
+	function formatDivs() {
+		let dueDate = new Date(targetObj.dueDateTime).toDateString();
+		let dueTime = new Date(targetObj.dueDateTime).toLocaleTimeString();
+		dueTime = dueTime.replace(/:(\d{2})\s/, "").toLowerCase();
+		colmTwoTitle.textContent = targetObj.title;
+		colmTwoPriority.textContent = `${targetObj.priority}`;
+		colmTwoTag.textContent = `Tag: ${targetObj.tag}`;
+		colmTwoDueDate.textContent = `Due: ${dueDate} ${dueTime}`;
+		colmTwoDescription.textContent = `Description: ${targetObj.description}`;
+
+		switch (targetObj.priority) {
+			case "Low":
+				colmTwoPriority.style.backgroundColor = "green";
+				break;
+			case "Medium":
+				colmTwoPriority.style.backgroundColor = "orange";
+				break;
+			case "High":
+				colmTwoPriority.style.backgroundColor = "red";
+				break;
+		}
+	}
+
+	if (objKey.includes("project")) {
+		targetObj = projectList[`${objKey[objKey.length - 1]}`];
+		let thisTaskList = targetObj.taskList;
+		formatDivs();
+		thisTaskList.forEach((x) => makeProjTaskListDisplay(x, colmTwoTasksList, "project"));
+	} else if (objKey.includes("task")) {
+		targetObj = independentTasks[`${objKey[objKey.length - 1]}`];
+		let thisTaskList = targetObj.subTasks;
+		formatDivs();
+		thisTaskList.forEach((x) => makeProjTaskListDisplay(x, colmTwoTasksList, "task"));
+	}
+
+	colmTwoDisplay.append(colmTwoTitle, colmTwoDescription, colmTwoPriority, colmTwoTag, colmTwoDueDate, colmTwoTasksList);
+	projTaskDisplay.append(colmTwoDisplay);
 }

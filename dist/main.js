@@ -12099,8 +12099,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@font-face {
 }
 
 :root {
-	--60Color: black;
-	--30Color: #2f2f2f;
+	--60Color: #00011f;
+	--30Color: #12285e;
 	--10Color: #66bb6a;
 }
 
@@ -12156,23 +12156,30 @@ header > img {
 	cursor: pointer;
 }
 
-.inboxColmOneItems {
+.inboxColmOneList {
 	background-color: var(--30Color);
 	color: white;
 	width: 17rem;
 	border-radius: 4px;
 }
 
-.inboxColmOneItems > div {
+.inboxColmOneList > div {
 	padding: 2px 8px;
 }
 
 main {
 	display: grid;
 	grid-area: 2/1/2/4;
+	grid-template-rows: 0.25fr 4fr;
+	grid-template-columns: 0.7fr 4fr;
+}
+
+#newObjBtns {
+	grid-area: 1/1/1/1;
 }
 
 #projTaskNav {
+	grid-area: 2/1/3/1;
 	display: flex;
 	flex-direction: column;
 	padding-left: 20px;
@@ -12227,13 +12234,42 @@ textarea {
 	caret-color: black;
 }
 
-.colmOneList {
+.itemsList {
 	display: flex;
-	border-bottom: black 2px solid;
 	font-weight: 500;
 	cursor: pointer;
 	justify-content: space-between;
 	transition: 250ms;
+}
+
+.itemsList:hover {
+	background-color: var(--10Color);
+}
+
+.itemsList:hover > .colmOneDueDate > .openArrow {
+	transform: translate(5px);
+	color: var(--30Color);
+}
+
+.selected {
+	border: var(--10Color) 2px solid;
+}
+
+.selected > .colmOneDueDate > .openArrow {
+	transform: translate(5px);
+}
+
+.unselected {
+	border-bottom: var(--60Color) 2px solid;
+}
+
+.openArrow {
+	display: inline-block;
+	font-weight: 900;
+	transition: 500ms;
+	justify-self: center;
+	padding-left: 2px;
+	color: var(--10Color);
 }
 
 .colmOnePriority {
@@ -12245,31 +12281,67 @@ textarea {
 	justify-content: space-between;
 	color: var(--60Color);
 	padding-right: 15px;
-	border-bottom: black 2px solid;
+	border-bottom: var(--60Color) 2px solid;
 }
 
 .colmHeaderDueDate {
 	padding-right: 15px;
 }
 
-.openArrow {
-	display: inline-block;
-	color: var(--10Color);
-	font-weight: 900;
-	transition: 500ms;
+#projTaskDisplay {
+	display: flex;
+	grid-area: 2/2/3/3;
 }
 
-.colmOneList:hover {
-	background-color: #424242;
+#colmTwoDisplay {
+	display: grid;
+	grid-template-columns: 0.1fr 0.5fr 1fr 0.5fr 0.1fr;
+	grid-template-rows: 0.5fr 0.5fr 2fr;
+	background-color: var(--30Color);
+	border-radius: 0.25rem;
+	height: fit-content;
+	margin: 0.125rem;
+	margin-top: 50px;
+	padding: 0.4rem;
 }
 
-.colmOneList:hover > .colmOneDueDate > .openArrow {
-	transform: translate(5px);
+#colmTwoTitle {
+	font-size: larger;
+	font-weight: bolder;
+	text-align: center;
+	background-color: var(--10Color);
+	border-radius: 0.25rem;
+	grid-area: 1/1/1/4;
 }
 
-.colmOneActiveItem {
+#colmTwoPriority {
+	font-size: medium;
+	font-weight: bold;
+	border-radius: 0.25rem;
+	grid-area: 1/4/1/6;
+	text-align: center;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"AAAA;CACC,wBAAwB;CACxB,6DAA0E;AAC3E;;AAEA;CACC,oBAAoB;CACpB,6DAA6E;AAC9E;;AAEA;CACC,sBAAsB;CACtB,6DAA0E;AAC3E;;AAEA;CACC,qBAAqB;CACrB,4CAA+C;AAChD;;AAEA;CACC,gBAAgB;CAChB,kBAAkB;CAClB,kBAAkB;AACnB;;AAEA;CACC,0BAA0B;CAC1B,aAAa;CACb,aAAa;CACb,kCAAkC;CAClC,oCAAoC;CACpC,wBAAwB;CACxB,YAAY;CACZ,wBAAwB;AACzB;;AAEA;CACC,kBAAkB;CAClB,aAAa;CACb,iBAAiB;CACjB,iBAAiB;CACjB,mBAAmB;AACpB;;AAEA;CACC,kBAAkB;CAClB,sBAAsB;CACtB,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,WAAW;CACX,aAAa;CACb,oBAAoB;CACpB,kBAAkB;CAClB,kBAAkB;CAClB,kBAAkB;AACnB;;AAEA;CACC,qBAAqB;CACrB,kBAAkB;CAClB,iBAAiB;CACjB,gBAAgB;CAChB,iBAAiB;CACjB,oBAAoB;CACpB,eAAe;AAChB;;AAEA;CACC,gCAAgC;CAChC,YAAY;CACZ,YAAY;CACZ,kBAAkB;AACnB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,aAAa;CACb,kBAAkB;AACnB;;AAEA;CACC,aAAa;CACb,sBAAsB;CACtB,kBAAkB;CAClB,iBAAiB;CACjB,qBAAqB;AACtB;;AAEA;CACC,kBAAkB;CAClB,WAAW;CACX,YAAY;AACb;;AAEA;CACC,aAAa;CACb,mBAAmB;CACnB,uBAAuB;CACvB,eAAe;AAChB;;AAEA;CACC,UAAU;CACV,aAAa;CACb,mBAAmB;CACnB,qBAAqB;CACrB,cAAc;CACd,8BAA8B;CAC9B,gBAAgB;AACjB;;AAEA;CACC,gBAAgB;CAChB,6FAA6F;AAC9F;;AAEA;;CAEC,aAAa;CACb,sBAAsB;CACtB,gCAAgC;CAChC,mBAAmB;CACnB,YAAY;CACZ,YAAY;CACZ,kBAAkB;CAClB,kBAAkB;CAClB,QAAQ;CACR,SAAS;AACV;;AAEA;;CAEC,kBAAkB;AACnB;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,gBAAgB;CAChB,eAAe;CACf,8BAA8B;CAC9B,iBAAiB;AAClB;;AAEA;CACC,kBAAkB;AACnB;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,qBAAqB;CACrB,mBAAmB;CACnB,8BAA8B;AAC/B;;AAEA;CACC,mBAAmB;AACpB;;AAEA;CACC,qBAAqB;CACrB,qBAAqB;CACrB,gBAAgB;CAChB,iBAAiB;AAClB;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;AACA","sourcesContent":["@font-face {\n\tfont-family: \"quickSand\";\n\tsrc: url(../assets/fonts/Quicksand-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Space\";\n\tsrc: url(../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Unbound\";\n\tsrc: url(../assets/fonts/Unbounded-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Lilita\";\n\tsrc: url(../assets/fonts/LilitaOne-Regular.ttf);\n}\n\n:root {\n\t--60Color: black;\n\t--30Color: #2f2f2f;\n\t--10Color: #66bb6a;\n}\n\nbody {\n\tbackground: var(--60Color);\n\tdisplay: grid;\n\theight: 100vh;\n\tgrid-template-columns: 1fr 3fr 1fr;\n\tgrid-template-rows: 0.5fr 5fr 0.25fr;\n\tfont-family: \"quickSand\";\n\tcolor: white;\n\tcaret-color: transparent;\n}\n\nheader {\n\tgrid-area: 1/1/1/4;\n\tdisplay: flex;\n\tpadding-left: 0px;\n\tpadding-top: 10px;\n\tpadding-right: 15px;\n}\n\nheader > span {\n\talign-self: center;\n\tfont-family: \"Unbound\";\n\tfont-size: 40px;\n}\n\n#to2 {\n\tcolor: var(--10Color);\n}\n\nheader > img {\n\theight: 90px;\n}\n\n#settings {\n\twidth: 100%;\n\tdisplay: flex;\n\tjustify-content: end;\n\ttext-align: center;\n\talign-self: center;\n\tmargin-right: 50px;\n}\n\n#newObjBtns {\n\tcolor: var(--10Color);\n\talign-self: center;\n\tmargin-left: 20px;\n\tmargin-top: 10px;\n\tfont-weight: bold;\n\tfont-family: \"Space\";\n\tcursor: pointer;\n}\n\n.inboxColmOneItems {\n\tbackground-color: var(--30Color);\n\tcolor: white;\n\twidth: 17rem;\n\tborder-radius: 4px;\n}\n\n.inboxColmOneItems > div {\n\tpadding: 2px 8px;\n}\n\nmain {\n\tdisplay: grid;\n\tgrid-area: 2/1/2/4;\n}\n\n#projTaskNav {\n\tdisplay: flex;\n\tflex-direction: column;\n\tpadding-left: 20px;\n\tpadding-top: 15px;\n\tcolor: var(--30Color);\n}\n\nfooter {\n\tposition: absolute;\n\tright: 30px;\n\tbottom: 15px;\n}\n\nfooter > span {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tfont-size: 12px;\n}\n\nfooter > span > a {\n\twidth: 27%;\n\tdisplay: flex;\n\talign-items: center;\n\ttext-decoration: none;\n\tcolor: inherit;\n\tjustify-content: space-between;\n\tmargin-left: 4px;\n}\n\nfooter > span > a > img {\n\tmargin-left: 4px;\n\tfilter: invert(68%) sepia(4%) saturate(5571%) hue-rotate(75deg) brightness(95%) contrast(88%);\n}\n\n#newProjEntryBox,\n#newTaskEntryBox {\n\tdisplay: flex;\n\tflex-direction: column;\n\tbackground-color: var(--30Color);\n\theight: fit-content;\n\twidth: 400px;\n\tcolor: white;\n\tborder-radius: 4px;\n\tposition: absolute;\n\ttop: 25%;\n\tleft: 40%;\n}\n\ninput,\ntextarea {\n\tcaret-color: black;\n}\n\n.colmOneList {\n\tdisplay: flex;\n\tborder-bottom: black 2px solid;\n\tfont-weight: 500;\n\tcursor: pointer;\n\tjustify-content: space-between;\n\ttransition: 250ms;\n}\n\n.colmOnePriority {\n\talign-self: center;\n}\n\n.colmHeaders {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tcolor: var(--60Color);\n\tpadding-right: 15px;\n\tborder-bottom: black 2px solid;\n}\n\n.colmHeaderDueDate {\n\tpadding-right: 15px;\n}\n\n.openArrow {\n\tdisplay: inline-block;\n\tcolor: var(--10Color);\n\tfont-weight: 900;\n\ttransition: 500ms;\n}\n\n.colmOneList:hover {\n\tbackground-color: #424242;\n}\n\n.colmOneList:hover > .colmOneDueDate > .openArrow {\n\ttransform: translate(5px);\n}\n\n.colmOneActiveItem {\n}\n"],"sourceRoot":""}]);
+
+#colmTwoTag {
+	font-size: medium;
+	grid-area: 2/2/2/2;
+}
+
+#colmTwoDueDate {
+	font-size: medium;
+	grid-area: 2/3/2/5;
+}
+
+#colmTwoDescription {
+	font-size: medium;
+	grid-area: 3/2/3/5;
+}
+
+#colmTwoTasksList {
+	display: flex;
+	flex-direction: column;
+}
+`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"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","sourcesContent":["@font-face {\n\tfont-family: \"quickSand\";\n\tsrc: url(../assets/fonts/Quicksand-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Space\";\n\tsrc: url(../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Unbound\";\n\tsrc: url(../assets/fonts/Unbounded-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Lilita\";\n\tsrc: url(../assets/fonts/LilitaOne-Regular.ttf);\n}\n\n:root {\n\t--60Color: #00011f;\n\t--30Color: #12285e;\n\t--10Color: #66bb6a;\n}\n\nbody {\n\tbackground: var(--60Color);\n\tdisplay: grid;\n\theight: 100vh;\n\tgrid-template-columns: 1fr 3fr 1fr;\n\tgrid-template-rows: 0.5fr 5fr 0.25fr;\n\tfont-family: \"quickSand\";\n\tcolor: white;\n\tcaret-color: transparent;\n}\n\nheader {\n\tgrid-area: 1/1/1/4;\n\tdisplay: flex;\n\tpadding-left: 0px;\n\tpadding-top: 10px;\n\tpadding-right: 15px;\n}\n\nheader > span {\n\talign-self: center;\n\tfont-family: \"Unbound\";\n\tfont-size: 40px;\n}\n\n#to2 {\n\tcolor: var(--10Color);\n}\n\nheader > img {\n\theight: 90px;\n}\n\n#settings {\n\twidth: 100%;\n\tdisplay: flex;\n\tjustify-content: end;\n\ttext-align: center;\n\talign-self: center;\n\tmargin-right: 50px;\n}\n\n#newObjBtns {\n\tcolor: var(--10Color);\n\talign-self: center;\n\tmargin-left: 20px;\n\tmargin-top: 10px;\n\tfont-weight: bold;\n\tfont-family: \"Space\";\n\tcursor: pointer;\n}\n\n.inboxColmOneList {\n\tbackground-color: var(--30Color);\n\tcolor: white;\n\twidth: 17rem;\n\tborder-radius: 4px;\n}\n\n.inboxColmOneList > div {\n\tpadding: 2px 8px;\n}\n\nmain {\n\tdisplay: grid;\n\tgrid-area: 2/1/2/4;\n\tgrid-template-rows: 0.25fr 4fr;\n\tgrid-template-columns: 0.7fr 4fr;\n}\n\n#newObjBtns {\n\tgrid-area: 1/1/1/1;\n}\n\n#projTaskNav {\n\tgrid-area: 2/1/3/1;\n\tdisplay: flex;\n\tflex-direction: column;\n\tpadding-left: 20px;\n\tpadding-top: 15px;\n\tcolor: var(--30Color);\n}\n\nfooter {\n\tposition: absolute;\n\tright: 30px;\n\tbottom: 15px;\n}\n\nfooter > span {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tfont-size: 12px;\n}\n\nfooter > span > a {\n\twidth: 27%;\n\tdisplay: flex;\n\talign-items: center;\n\ttext-decoration: none;\n\tcolor: inherit;\n\tjustify-content: space-between;\n\tmargin-left: 4px;\n}\n\nfooter > span > a > img {\n\tmargin-left: 4px;\n\tfilter: invert(68%) sepia(4%) saturate(5571%) hue-rotate(75deg) brightness(95%) contrast(88%);\n}\n\n#newProjEntryBox,\n#newTaskEntryBox {\n\tdisplay: flex;\n\tflex-direction: column;\n\tbackground-color: var(--30Color);\n\theight: fit-content;\n\twidth: 400px;\n\tcolor: white;\n\tborder-radius: 4px;\n\tposition: absolute;\n\ttop: 25%;\n\tleft: 40%;\n}\n\ninput,\ntextarea {\n\tcaret-color: black;\n}\n\n.itemsList {\n\tdisplay: flex;\n\tfont-weight: 500;\n\tcursor: pointer;\n\tjustify-content: space-between;\n\ttransition: 250ms;\n}\n\n.itemsList:hover {\n\tbackground-color: var(--10Color);\n}\n\n.itemsList:hover > .colmOneDueDate > .openArrow {\n\ttransform: translate(5px);\n\tcolor: var(--30Color);\n}\n\n.selected {\n\tborder: var(--10Color) 2px solid;\n}\n\n.selected > .colmOneDueDate > .openArrow {\n\ttransform: translate(5px);\n}\n\n.unselected {\n\tborder-bottom: var(--60Color) 2px solid;\n}\n\n.openArrow {\n\tdisplay: inline-block;\n\tfont-weight: 900;\n\ttransition: 500ms;\n\tjustify-self: center;\n\tpadding-left: 2px;\n\tcolor: var(--10Color);\n}\n\n.colmOnePriority {\n\talign-self: center;\n}\n\n.colmHeaders {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tcolor: var(--60Color);\n\tpadding-right: 15px;\n\tborder-bottom: var(--60Color) 2px solid;\n}\n\n.colmHeaderDueDate {\n\tpadding-right: 15px;\n}\n\n#projTaskDisplay {\n\tdisplay: flex;\n\tgrid-area: 2/2/3/3;\n}\n\n#colmTwoDisplay {\n\tdisplay: grid;\n\tgrid-template-columns: 0.1fr 0.5fr 1fr 0.5fr 0.1fr;\n\tgrid-template-rows: 0.5fr 0.5fr 2fr;\n\tbackground-color: var(--30Color);\n\tborder-radius: 0.25rem;\n\theight: fit-content;\n\tmargin: 0.125rem;\n\tmargin-top: 50px;\n\tpadding: 0.4rem;\n}\n\n#colmTwoTitle {\n\tfont-size: larger;\n\tfont-weight: bolder;\n\ttext-align: center;\n\tbackground-color: var(--10Color);\n\tborder-radius: 0.25rem;\n\tgrid-area: 1/1/1/4;\n}\n\n#colmTwoPriority {\n\tfont-size: medium;\n\tfont-weight: bold;\n\tborder-radius: 0.25rem;\n\tgrid-area: 1/4/1/6;\n\ttext-align: center;\n}\n\n#colmTwoTag {\n\tfont-size: medium;\n\tgrid-area: 2/2/2/2;\n}\n\n#colmTwoDueDate {\n\tfont-size: medium;\n\tgrid-area: 2/3/2/5;\n}\n\n#colmTwoDescription {\n\tfont-size: medium;\n\tgrid-area: 3/2/3/5;\n}\n\n#colmTwoTasksList {\n\tdisplay: flex;\n\tflex-direction: column;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12867,6 +12939,8 @@ module.exports = styleTagTransform;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   colmOneItemClick: () => (/* binding */ colmOneItemClick),
+/* harmony export */   makeProjTaskListDisplay: () => (/* binding */ makeProjTaskListDisplay),
 /* harmony export */   setStorage: () => (/* binding */ setStorage)
 /* harmony export */ });
 /* harmony import */ var _project_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project_class */ "./src/scripts/project_class.js");
@@ -12895,8 +12969,8 @@ const newTaskBtn = document.getElementById("newTask");
 const newTaskBox = document.getElementById("newTaskEntryBox");
 const newProjForm = document.getElementById("newProjForm");
 const newTaskForm = document.getElementById("newTaskForm");
-const colmOneItems = document.getElementsByClassName("inboxColmOneItems");
-let colmOneListItemArr;
+const itemsList = document.getElementsByClassName("itemsList");
+const projTaskDisplay = document.getElementById("projTaskDisplay");
 
 // Load local storage data and reapply methods to objects
 (function loadLocalStorage() {
@@ -12915,6 +12989,7 @@ let colmOneListItemArr;
 	_task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks.forEach((task) => (0,_task_class__WEBPACK_IMPORTED_MODULE_1__.addTaskMethods)(task));
 	(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.updateProjDisplay)();
 	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.updateIndependentTaskDisplay)();
+	colmOneItemClick();
 })();
 
 newProjForm.addEventListener("submit", (x) => {
@@ -12922,6 +12997,7 @@ newProjForm.addEventListener("submit", (x) => {
 	(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.newProjSubmit)(x);
 	(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.updateProjDisplay)();
 	cancelCreateObj();
+	x.target.reset();
 });
 
 newTaskForm.addEventListener("submit", (x) => {
@@ -12929,6 +13005,7 @@ newTaskForm.addEventListener("submit", (x) => {
 	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.newTaskSubmit)(x);
 	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.updateIndependentTaskDisplay)();
 	cancelCreateObj();
+	x.target.reset();
 });
 
 //Set page images
@@ -12940,12 +13017,16 @@ newTaskBtn.addEventListener("click", newTaskDialogue);
 function newTaskDialogue() {
 	newTaskBox.style.visibility = "visible";
 	newProjBox.style.visibility = "hidden";
+	let priority = newTaskBox.children[0].children[4].children[1].children[1];
+	priority.style.backgroundColor = "green";
 }
 
 newProjectBtn.addEventListener("click", newProjDialogue);
 function newProjDialogue() {
 	newProjBox.style.visibility = "visible";
 	newTaskBox.style.visibility = "hidden";
+	let priority = newProjBox.children[0].children[4].children[1].children[1];
+	priority.style.backgroundColor = "green";
 }
 
 function cancelCreateObj() {
@@ -12972,27 +13053,25 @@ function sortList(listToSort, propertySortBy, ascDesc) {
 	});
 }
 
-Array.from(prioritySelect).forEach((x) => {
-	x.addEventListener("change", changePriorityColor);
+Array.from(prioritySelect).forEach((priority) => {
+	priority.addEventListener("change", (x) => changePriorityColor(priority));
 });
-function changePriorityColor(x) {
-	Array.from(prioritySelect).forEach((a) => {
-		switch (a.value) {
-			case "Low":
-				a.style.backgroundColor = "green";
-				break;
-			case "Medium":
-				a.style.backgroundColor = "orange";
-				break;
-			case "High":
-				a.style.backgroundColor = "red";
-				break;
-		}
-	});
+function changePriorityColor(a) {
+	switch (a.value) {
+		case "Low":
+			a.style.backgroundColor = "green";
+			break;
+		case "Medium":
+			a.style.backgroundColor = "orange";
+			break;
+		case "High":
+			a.style.backgroundColor = "red";
+			break;
+	}
 }
 
 //Format "empty" div when no tasks/projs
-Array.from(colmOneItems).forEach((x) => {
+Array.from(itemsList).forEach((x) => {
 	if (x.childElementCount == 0) {
 		let emptyNode = document.createElement("div");
 		emptyNode.textContent = "None";
@@ -13006,6 +13085,128 @@ Array.from(colmOneItems).forEach((x) => {
 function setStorage() {
 	localStorage.setItem("savedProjectList", JSON.stringify(_project_class__WEBPACK_IMPORTED_MODULE_0__.projectList));
 	localStorage.setItem("savedIndependentTasks", JSON.stringify(_task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks));
+}
+
+//Make List Display of Projects/Tasks
+function makeProjTaskListDisplay(x, targetDiv, type) {
+	let projDiv = document.createElement("div");
+	projDiv.classList.add("itemsList", "unselected");
+	let priority = document.createElement("div");
+	priority.setAttribute("class", "colmOnePriority");
+	let title = document.createElement("span");
+	let dueDate = document.createElement("span");
+	dueDate.setAttribute("class", "colmOneDueDate");
+	let openArrow = document.createElement("span");
+	openArrow.textContent = ">";
+	openArrow.setAttribute("class", "openArrow");
+	let objID = document.createElement("span");
+	objID.style.visibility = "hidden";
+	objID.style.position = "absolute";
+
+	priority.style.width = "8px";
+	priority.style.height = "8px";
+	priority.style.borderRadius = "4px";
+	switch (x.priority) {
+		case "Low":
+			priority.style.backgroundColor = "green";
+			break;
+		case "Medium":
+			priority.style.backgroundColor = "orange";
+			break;
+		case "High":
+			priority.style.backgroundColor = "red";
+			break;
+	}
+	title.textContent = x.title;
+	console.log();
+	dueDate.textContent = x.dueDateTime ? new Date(x.dueDateTime).toLocaleDateString() : "No Due Date";
+	dueDate.append(openArrow);
+
+	if (type === "task") {
+		objID.textContent = `task ${_task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks.indexOf(x)}`;
+	} else if (type === "project") {
+		objID.textContent = `project ${_project_class__WEBPACK_IMPORTED_MODULE_0__.projectList.indexOf(x)}`;
+	}
+
+	projDiv.append(priority, title, dueDate, objID);
+	targetDiv.appendChild(projDiv);
+}
+
+// Watch Column One Items for Click to Open details
+function colmOneItemClick() {
+	let colmOneListItems = document.getElementsByClassName("colmOneListItems");
+
+	Array.from(itemsList).forEach((listItem) => {
+		listItem.addEventListener("click", (x) => {
+			Array.from(itemsList).forEach((n) => {
+				n.classList.remove("selected");
+				n.classList.add("unselected");
+			});
+			listItem.classList.add("selected");
+			listItem.classList.remove("unselected");
+			mkColmTwoDisplay(listItem);
+		});
+	});
+}
+
+function mkColmTwoDisplay(listItem) {
+	projTaskDisplay.innerHTML = "";
+
+	let colmTwoDisplay = document.createElement("div");
+	colmTwoDisplay.setAttribute("id", "colmTwoDisplay");
+	let colmTwoTitle = document.createElement("div");
+	colmTwoTitle.setAttribute("id", "colmTwoTitle");
+	let colmTwoPriority = document.createElement("span");
+	colmTwoPriority.setAttribute("id", "colmTwoPriority");
+	let colmTwoTag = document.createElement("id", "span");
+	colmTwoTag.setAttribute("id", "colmTwoTag");
+	let colmTwoDueDate = document.createElement("div");
+	colmTwoDueDate.setAttribute("id", "colmTwoDueDate");
+	let colmTwoDescription = document.createElement("p");
+	colmTwoDescription.setAttribute("id", "colmTwoDescription");
+	let colmTwoTasksList = document.createElement("div");
+	colmTwoTasksList.setAttribute("id", "colmTwoTasksList");
+
+	let objKey = listItem.children[3].textContent;
+	let targetObj;
+
+	function formatDivs() {
+		let dueDate = new Date(targetObj.dueDateTime).toDateString();
+		let dueTime = new Date(targetObj.dueDateTime).toLocaleTimeString();
+		dueTime = dueTime.replace(/:(\d{2})\s/, "").toLowerCase();
+		colmTwoTitle.textContent = targetObj.title;
+		colmTwoPriority.textContent = `${targetObj.priority}`;
+		colmTwoTag.textContent = `Tag: ${targetObj.tag}`;
+		colmTwoDueDate.textContent = `Due: ${dueDate} ${dueTime}`;
+		colmTwoDescription.textContent = `Description: ${targetObj.description}`;
+
+		switch (targetObj.priority) {
+			case "Low":
+				colmTwoPriority.style.backgroundColor = "green";
+				break;
+			case "Medium":
+				colmTwoPriority.style.backgroundColor = "orange";
+				break;
+			case "High":
+				colmTwoPriority.style.backgroundColor = "red";
+				break;
+		}
+	}
+
+	if (objKey.includes("project")) {
+		targetObj = _project_class__WEBPACK_IMPORTED_MODULE_0__.projectList[`${objKey[objKey.length - 1]}`];
+		let thisTaskList = targetObj.taskList;
+		formatDivs();
+		thisTaskList.forEach((x) => makeProjTaskListDisplay(x, colmTwoTasksList, "project"));
+	} else if (objKey.includes("task")) {
+		targetObj = _task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks[`${objKey[objKey.length - 1]}`];
+		let thisTaskList = targetObj.subTasks;
+		formatDivs();
+		thisTaskList.forEach((x) => makeProjTaskListDisplay(x, colmTwoTasksList, "task"));
+	}
+
+	colmTwoDisplay.append(colmTwoTitle, colmTwoDescription, colmTwoPriority, colmTwoTag, colmTwoDueDate, colmTwoTasksList);
+	projTaskDisplay.append(colmTwoDisplay);
 }
 
 
@@ -13133,6 +13334,7 @@ function addProjMethods(thisProject) {
 function newProjSubmit(x) {
 	let projInfo = x.target;
 	newProject(projInfo[0].value, projInfo[1].value, projInfo[4].value, projInfo[2].value, projInfo[3].value, projInfo[5].value);
+	(0,_index__WEBPACK_IMPORTED_MODULE_0__.colmOneItemClick)();
 	(0,_index__WEBPACK_IMPORTED_MODULE_0__.setStorage)();
 }
 
@@ -13146,39 +13348,7 @@ function updateProjDisplay() {
 		colmOneProjList.append(colmOneTaskHeader);
 	}
 
-	projectList.forEach((x) => {
-		let projDiv = document.createElement("div");
-		projDiv.setAttribute("class", "colmOneList");
-		let priority = document.createElement("div");
-		priority.setAttribute("class", "colmOnePriority");
-		let title = document.createElement("span");
-		let dueDate = document.createElement("span");
-		dueDate.setAttribute("class", "colmOneDueDate");
-		let openArrow = document.createElement("span");
-		openArrow.textContent = ">";
-		openArrow.setAttribute("class", "openArrow");
-
-		priority.style.width = "8px";
-		priority.style.height = "8px";
-		priority.style.borderRadius = "4px";
-		switch (x.priority) {
-			case "Low":
-				priority.style.backgroundColor = "green";
-				break;
-			case "Medium":
-				priority.style.backgroundColor = "orange";
-				break;
-			case "High":
-				priority.style.backgroundColor = "red";
-				break;
-		}
-		title.textContent = x.title;
-		dueDate.textContent = x.dueDateTime ? new Date(x.dueDateTime).toLocaleDateString() : "No Due Date";
-		dueDate.append(openArrow);
-
-		projDiv.append(priority, title, dueDate);
-		colmOneProjList.appendChild(projDiv);
-	});
+	projectList.forEach((x) => (0,_index__WEBPACK_IMPORTED_MODULE_0__.makeProjTaskListDisplay)(x, colmOneProjList, "project"));
 }
 
 
@@ -13310,6 +13480,7 @@ function newTaskSubmit(x) {
 	let taskInfo = x.target;
 	console.log(taskInfo);
 	newTask(taskInfo[0].value, taskInfo[1].value, taskInfo[4].value, taskInfo[2].value, taskInfo[3].value, taskInfo[5].value);
+	(0,_index__WEBPACK_IMPORTED_MODULE_0__.colmOneItemClick)();
 	(0,_index__WEBPACK_IMPORTED_MODULE_0__.setStorage)();
 }
 
@@ -13323,40 +13494,7 @@ function updateIndependentTaskDisplay() {
 		colmOneIndependentTasks.append(colmOneTaskHeader);
 	}
 
-	independentTasks.forEach((x) => {
-		let projDiv = document.createElement("div");
-		projDiv.setAttribute("class", "colmOneList");
-		let priority = document.createElement("div");
-		priority.setAttribute("class", "colmOnePriority");
-		let title = document.createElement("span");
-		let dueDate = document.createElement("span");
-		dueDate.setAttribute("class", "colmOneDueDate");
-		let openArrow = document.createElement("span");
-		openArrow.textContent = ">";
-		openArrow.setAttribute("class", "openArrow");
-
-		priority.style.width = "8px";
-		priority.style.height = "8px";
-		priority.style.borderRadius = "4px";
-		switch (x.priority) {
-			case "Low":
-				priority.style.backgroundColor = "green";
-				break;
-			case "Medium":
-				priority.style.backgroundColor = "orange";
-				break;
-			case "High":
-				priority.style.backgroundColor = "red";
-				break;
-		}
-		title.textContent = x.title;
-		console.log();
-		dueDate.textContent = x.dueDateTime ? new Date(x.dueDateTime).toLocaleDateString() : "No Due Date";
-		dueDate.append(openArrow);
-
-		projDiv.append(priority, title, dueDate);
-		colmOneIndependentTasks.appendChild(projDiv);
-	});
+	independentTasks.forEach((x) => (0,_index__WEBPACK_IMPORTED_MODULE_0__.makeProjTaskListDisplay)(x, colmOneIndependentTasks, "task"));
 }
 
 
@@ -13608,7 +13746,7 @@ module.exports = __webpack_require__.p + "e4e4b3b4c0f5f020e11e.svg";
   \***************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "2cb7513d7315bcc02c0c.svg";
+module.exports = __webpack_require__.p + "bfdfecb3cbbb252c43e4.svg";
 
 /***/ })
 

@@ -1,4 +1,4 @@
-import { setStorage } from "./index";
+import { setStorage, colmOneItemClick, makeProjTaskListDisplay } from "./index";
 
 const colmOneProjList = document.getElementById("projectListDiv");
 
@@ -104,6 +104,7 @@ export function addProjMethods(thisProject) {
 export function newProjSubmit(x) {
 	let projInfo = x.target;
 	newProject(projInfo[0].value, projInfo[1].value, projInfo[4].value, projInfo[2].value, projInfo[3].value, projInfo[5].value);
+	colmOneItemClick();
 	setStorage();
 }
 
@@ -117,37 +118,5 @@ export function updateProjDisplay() {
 		colmOneProjList.append(colmOneTaskHeader);
 	}
 
-	projectList.forEach((x) => {
-		let projDiv = document.createElement("div");
-		projDiv.setAttribute("class", "colmOneList");
-		let priority = document.createElement("div");
-		priority.setAttribute("class", "colmOnePriority");
-		let title = document.createElement("span");
-		let dueDate = document.createElement("span");
-		dueDate.setAttribute("class", "colmOneDueDate");
-		let openArrow = document.createElement("span");
-		openArrow.textContent = ">";
-		openArrow.setAttribute("class", "openArrow");
-
-		priority.style.width = "8px";
-		priority.style.height = "8px";
-		priority.style.borderRadius = "4px";
-		switch (x.priority) {
-			case "Low":
-				priority.style.backgroundColor = "green";
-				break;
-			case "Medium":
-				priority.style.backgroundColor = "orange";
-				break;
-			case "High":
-				priority.style.backgroundColor = "red";
-				break;
-		}
-		title.textContent = x.title;
-		dueDate.textContent = x.dueDateTime ? new Date(x.dueDateTime).toLocaleDateString() : "No Due Date";
-		dueDate.append(openArrow);
-
-		projDiv.append(priority, title, dueDate);
-		colmOneProjList.appendChild(projDiv);
-	});
+	projectList.forEach((x) => makeProjTaskListDisplay(x, colmOneProjList, "project"));
 }
