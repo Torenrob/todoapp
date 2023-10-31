@@ -147,9 +147,45 @@ textarea {
 	caret-color: black;
 }
 
-.colmOneProjList {
+.colmOneList {
 	display: flex;
-	justify-content: space-around;
 	border-bottom: black 2px solid;
 	font-weight: 500;
+	cursor: pointer;
+	justify-content: space-between;
+	transition: 250ms;
+}
+
+.colmOnePriority {
+	align-self: center;
+}
+
+.colmHeaders {
+	display: flex;
+	justify-content: space-between;
+	color: var(--60Color);
+	padding-right: 15px;
+	border-bottom: black 2px solid;
+}
+
+.colmHeaderDueDate {
+	padding-right: 15px;
+}
+
+.openArrow {
+	display: inline-block;
+	color: var(--10Color);
+	font-weight: 900;
+	transition: 500ms;
+}
+
+.colmOneList:hover {
+	background-color: #424242;
+}
+
+.colmOneList:hover > .colmOneDueDate > .openArrow {
+	transform: translate(5px);
+}
+
+.colmOneActiveItem {
 }

@@ -1,8 +1,14 @@
+import { setStorage } from "./index";
+
+const colmOneProjList = document.getElementById("projectListDiv");
+
 export let projectList = [];
 
 //Create new project
 export function newProject(title, description = null, tag = null, due_date = null, due_time = null, priority = null, users = null, teams = null, ...tasks) {
-	projectList.push(new Project(title, description, tag, due_date, due_time, priority, users, teams, ...tasks));
+	let newProj = new Project(title, description, tag, due_date, due_time, priority, users, teams, ...tasks);
+
+	projectList.push(newProj);
 }
 
 //Create Project class
@@ -11,8 +17,8 @@ export class Project {
 		this.title = title;
 		this.description = description == "" ? null : description;
 		this.tag = tag == "" ? null : tag;
-		if (due_date != "" && due_time != "") {
-			this.dueDateTime = new Date(`${due_date}` + "T" + `${due_time}`);
+		if (due_date && due_time) {
+			this.dueDateTime = new Date(`${due_date}T${due_time}`);
 		} else {
 			this.dueDateTime = due_date != "" ? new Date(due_date) : null;
 		}
@@ -89,9 +95,59 @@ export function addProjMethods(thisProject) {
 		projectList.splice(projectList.indexOf(this), 1);
 	};
 
-	console.log(thisProject);
-	//If project has tasklist add methods to those tasks
-	// if (thisProject.taskList.length > 0) {
-	// 	thisProject.taskList.forEach((x) => addTaskMethods(x));
-	// }
+	// If project has tasklist add methods to those tasks
+	if (thisProject.taskList.length > 0) {
+		thisProject.taskList.forEach((x) => addTaskMethods(x));
+	}
+}
+
+export function newProjSubmit(x) {
+	let projInfo = x.target;
+	newProject(projInfo[0].value, projInfo[1].value, projInfo[4].value, projInfo[2].value, projInfo[3].value, projInfo[5].value);
+	setStorage();
+}
+
+export function updateProjDisplay() {
+	colmOneProjList.innerHTML = "";
+
+	if (projectList.length > 0) {
+		const colmOneTaskHeader = document.createElement("div");
+		colmOneTaskHeader.innerHTML = "<span>Priority</span><span class='colmHeaderDueDate'>Due Date</span>";
+		colmOneTaskHeader.setAttribute("class", "colmHeaders");
+		colmOneProjList.append(colmOneTaskHeader);
+	}
+
+	projectList.forEach((x) => {
+		let projDiv = document.createElement("div");
+		projDiv.setAttribute("class", "colmOneList");
+		let priority = document.createElement("div");
+		priority.setAttribute("class", "colmOnePriority");
+		let title = document.createElement("span");
+		let dueDate = document.createElement("span");
+		dueDate.setAttribute("class", "colmOneDueDate");
+		let openArrow = document.createElement("span");
+		openArrow.textContent = ">";
+		openArrow.setAttribute("class", "openArrow");
+
+		priority.style.width = "8px";
+		priority.style.height = "8px";
+		priority.style.borderRadius = "4px";
+		switch (x.priority) {
+			case "Low":
+				priority.style.backgroundColor = "green";
+				break;
+			case "Medium":
+				priority.style.backgroundColor = "orange";
+				break;
+			case "High":
+				priority.style.backgroundColor = "red";
+				break;
+		}
+		title.textContent = x.title;
+		dueDate.textContent = x.dueDateTime ? new Date(x.dueDateTime).toLocaleDateString() : "No Due Date";
+		dueDate.append(openArrow);
+
+		projDiv.append(priority, title, dueDate);
+		colmOneProjList.appendChild(projDiv);
+	});
 }

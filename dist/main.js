@@ -12227,13 +12227,49 @@ textarea {
 	caret-color: black;
 }
 
-.colmOneProjList {
+.colmOneList {
 	display: flex;
-	justify-content: space-around;
 	border-bottom: black 2px solid;
 	font-weight: 500;
+	cursor: pointer;
+	justify-content: space-between;
+	transition: 250ms;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"AAAA;CACC,wBAAwB;CACxB,6DAA0E;AAC3E;;AAEA;CACC,oBAAoB;CACpB,6DAA6E;AAC9E;;AAEA;CACC,sBAAsB;CACtB,6DAA0E;AAC3E;;AAEA;CACC,qBAAqB;CACrB,4CAA+C;AAChD;;AAEA;CACC,gBAAgB;CAChB,kBAAkB;CAClB,kBAAkB;AACnB;;AAEA;CACC,0BAA0B;CAC1B,aAAa;CACb,aAAa;CACb,kCAAkC;CAClC,oCAAoC;CACpC,wBAAwB;CACxB,YAAY;CACZ,wBAAwB;AACzB;;AAEA;CACC,kBAAkB;CAClB,aAAa;CACb,iBAAiB;CACjB,iBAAiB;CACjB,mBAAmB;AACpB;;AAEA;CACC,kBAAkB;CAClB,sBAAsB;CACtB,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,WAAW;CACX,aAAa;CACb,oBAAoB;CACpB,kBAAkB;CAClB,kBAAkB;CAClB,kBAAkB;AACnB;;AAEA;CACC,qBAAqB;CACrB,kBAAkB;CAClB,iBAAiB;CACjB,gBAAgB;CAChB,iBAAiB;CACjB,oBAAoB;CACpB,eAAe;AAChB;;AAEA;CACC,gCAAgC;CAChC,YAAY;CACZ,YAAY;CACZ,kBAAkB;AACnB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,aAAa;CACb,kBAAkB;AACnB;;AAEA;CACC,aAAa;CACb,sBAAsB;CACtB,kBAAkB;CAClB,iBAAiB;CACjB,qBAAqB;AACtB;;AAEA;CACC,kBAAkB;CAClB,WAAW;CACX,YAAY;AACb;;AAEA;CACC,aAAa;CACb,mBAAmB;CACnB,uBAAuB;CACvB,eAAe;AAChB;;AAEA;CACC,UAAU;CACV,aAAa;CACb,mBAAmB;CACnB,qBAAqB;CACrB,cAAc;CACd,8BAA8B;CAC9B,gBAAgB;AACjB;;AAEA;CACC,gBAAgB;CAChB,6FAA6F;AAC9F;;AAEA;;CAEC,aAAa;CACb,sBAAsB;CACtB,gCAAgC;CAChC,mBAAmB;CACnB,YAAY;CACZ,YAAY;CACZ,kBAAkB;CAClB,kBAAkB;CAClB,QAAQ;CACR,SAAS;AACV;;AAEA;;CAEC,kBAAkB;AACnB;;AAEA;CACC,aAAa;CACb,6BAA6B;CAC7B,8BAA8B;CAC9B,gBAAgB;AACjB","sourcesContent":["@font-face {\n\tfont-family: \"quickSand\";\n\tsrc: url(../assets/fonts/Quicksand-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Space\";\n\tsrc: url(../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Unbound\";\n\tsrc: url(../assets/fonts/Unbounded-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Lilita\";\n\tsrc: url(../assets/fonts/LilitaOne-Regular.ttf);\n}\n\n:root {\n\t--60Color: black;\n\t--30Color: #2f2f2f;\n\t--10Color: #66bb6a;\n}\n\nbody {\n\tbackground: var(--60Color);\n\tdisplay: grid;\n\theight: 100vh;\n\tgrid-template-columns: 1fr 3fr 1fr;\n\tgrid-template-rows: 0.5fr 5fr 0.25fr;\n\tfont-family: \"quickSand\";\n\tcolor: white;\n\tcaret-color: transparent;\n}\n\nheader {\n\tgrid-area: 1/1/1/4;\n\tdisplay: flex;\n\tpadding-left: 0px;\n\tpadding-top: 10px;\n\tpadding-right: 15px;\n}\n\nheader > span {\n\talign-self: center;\n\tfont-family: \"Unbound\";\n\tfont-size: 40px;\n}\n\n#to2 {\n\tcolor: var(--10Color);\n}\n\nheader > img {\n\theight: 90px;\n}\n\n#settings {\n\twidth: 100%;\n\tdisplay: flex;\n\tjustify-content: end;\n\ttext-align: center;\n\talign-self: center;\n\tmargin-right: 50px;\n}\n\n#newObjBtns {\n\tcolor: var(--10Color);\n\talign-self: center;\n\tmargin-left: 20px;\n\tmargin-top: 10px;\n\tfont-weight: bold;\n\tfont-family: \"Space\";\n\tcursor: pointer;\n}\n\n.inboxColmOneItems {\n\tbackground-color: var(--30Color);\n\tcolor: white;\n\twidth: 17rem;\n\tborder-radius: 4px;\n}\n\n.inboxColmOneItems > div {\n\tpadding: 2px 8px;\n}\n\nmain {\n\tdisplay: grid;\n\tgrid-area: 2/1/2/4;\n}\n\n#projTaskNav {\n\tdisplay: flex;\n\tflex-direction: column;\n\tpadding-left: 20px;\n\tpadding-top: 15px;\n\tcolor: var(--30Color);\n}\n\nfooter {\n\tposition: absolute;\n\tright: 30px;\n\tbottom: 15px;\n}\n\nfooter > span {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tfont-size: 12px;\n}\n\nfooter > span > a {\n\twidth: 27%;\n\tdisplay: flex;\n\talign-items: center;\n\ttext-decoration: none;\n\tcolor: inherit;\n\tjustify-content: space-between;\n\tmargin-left: 4px;\n}\n\nfooter > span > a > img {\n\tmargin-left: 4px;\n\tfilter: invert(68%) sepia(4%) saturate(5571%) hue-rotate(75deg) brightness(95%) contrast(88%);\n}\n\n#newProjEntryBox,\n#newTaskEntryBox {\n\tdisplay: flex;\n\tflex-direction: column;\n\tbackground-color: var(--30Color);\n\theight: fit-content;\n\twidth: 400px;\n\tcolor: white;\n\tborder-radius: 4px;\n\tposition: absolute;\n\ttop: 25%;\n\tleft: 40%;\n}\n\ninput,\ntextarea {\n\tcaret-color: black;\n}\n\n.colmOneProjList {\n\tdisplay: flex;\n\tjustify-content: space-around;\n\tborder-bottom: black 2px solid;\n\tfont-weight: 500;\n}\n"],"sourceRoot":""}]);
+
+.colmOnePriority {
+	align-self: center;
+}
+
+.colmHeaders {
+	display: flex;
+	justify-content: space-between;
+	color: var(--60Color);
+	padding-right: 15px;
+	border-bottom: black 2px solid;
+}
+
+.colmHeaderDueDate {
+	padding-right: 15px;
+}
+
+.openArrow {
+	display: inline-block;
+	color: var(--10Color);
+	font-weight: 900;
+	transition: 500ms;
+}
+
+.colmOneList:hover {
+	background-color: #424242;
+}
+
+.colmOneList:hover > .colmOneDueDate > .openArrow {
+	transform: translate(5px);
+}
+
+.colmOneActiveItem {
+}
+`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"AAAA;CACC,wBAAwB;CACxB,6DAA0E;AAC3E;;AAEA;CACC,oBAAoB;CACpB,6DAA6E;AAC9E;;AAEA;CACC,sBAAsB;CACtB,6DAA0E;AAC3E;;AAEA;CACC,qBAAqB;CACrB,4CAA+C;AAChD;;AAEA;CACC,gBAAgB;CAChB,kBAAkB;CAClB,kBAAkB;AACnB;;AAEA;CACC,0BAA0B;CAC1B,aAAa;CACb,aAAa;CACb,kCAAkC;CAClC,oCAAoC;CACpC,wBAAwB;CACxB,YAAY;CACZ,wBAAwB;AACzB;;AAEA;CACC,kBAAkB;CAClB,aAAa;CACb,iBAAiB;CACjB,iBAAiB;CACjB,mBAAmB;AACpB;;AAEA;CACC,kBAAkB;CAClB,sBAAsB;CACtB,eAAe;AAChB;;AAEA;CACC,qBAAqB;AACtB;;AAEA;CACC,YAAY;AACb;;AAEA;CACC,WAAW;CACX,aAAa;CACb,oBAAoB;CACpB,kBAAkB;CAClB,kBAAkB;CAClB,kBAAkB;AACnB;;AAEA;CACC,qBAAqB;CACrB,kBAAkB;CAClB,iBAAiB;CACjB,gBAAgB;CAChB,iBAAiB;CACjB,oBAAoB;CACpB,eAAe;AAChB;;AAEA;CACC,gCAAgC;CAChC,YAAY;CACZ,YAAY;CACZ,kBAAkB;AACnB;;AAEA;CACC,gBAAgB;AACjB;;AAEA;CACC,aAAa;CACb,kBAAkB;AACnB;;AAEA;CACC,aAAa;CACb,sBAAsB;CACtB,kBAAkB;CAClB,iBAAiB;CACjB,qBAAqB;AACtB;;AAEA;CACC,kBAAkB;CAClB,WAAW;CACX,YAAY;AACb;;AAEA;CACC,aAAa;CACb,mBAAmB;CACnB,uBAAuB;CACvB,eAAe;AAChB;;AAEA;CACC,UAAU;CACV,aAAa;CACb,mBAAmB;CACnB,qBAAqB;CACrB,cAAc;CACd,8BAA8B;CAC9B,gBAAgB;AACjB;;AAEA;CACC,gBAAgB;CAChB,6FAA6F;AAC9F;;AAEA;;CAEC,aAAa;CACb,sBAAsB;CACtB,gCAAgC;CAChC,mBAAmB;CACnB,YAAY;CACZ,YAAY;CACZ,kBAAkB;CAClB,kBAAkB;CAClB,QAAQ;CACR,SAAS;AACV;;AAEA;;CAEC,kBAAkB;AACnB;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,gBAAgB;CAChB,eAAe;CACf,8BAA8B;CAC9B,iBAAiB;AAClB;;AAEA;CACC,kBAAkB;AACnB;;AAEA;CACC,aAAa;CACb,8BAA8B;CAC9B,qBAAqB;CACrB,mBAAmB;CACnB,8BAA8B;AAC/B;;AAEA;CACC,mBAAmB;AACpB;;AAEA;CACC,qBAAqB;CACrB,qBAAqB;CACrB,gBAAgB;CAChB,iBAAiB;AAClB;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;CACC,yBAAyB;AAC1B;;AAEA;AACA","sourcesContent":["@font-face {\n\tfont-family: \"quickSand\";\n\tsrc: url(../assets/fonts/Quicksand-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Space\";\n\tsrc: url(../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Unbound\";\n\tsrc: url(../assets/fonts/Unbounded-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Lilita\";\n\tsrc: url(../assets/fonts/LilitaOne-Regular.ttf);\n}\n\n:root {\n\t--60Color: black;\n\t--30Color: #2f2f2f;\n\t--10Color: #66bb6a;\n}\n\nbody {\n\tbackground: var(--60Color);\n\tdisplay: grid;\n\theight: 100vh;\n\tgrid-template-columns: 1fr 3fr 1fr;\n\tgrid-template-rows: 0.5fr 5fr 0.25fr;\n\tfont-family: \"quickSand\";\n\tcolor: white;\n\tcaret-color: transparent;\n}\n\nheader {\n\tgrid-area: 1/1/1/4;\n\tdisplay: flex;\n\tpadding-left: 0px;\n\tpadding-top: 10px;\n\tpadding-right: 15px;\n}\n\nheader > span {\n\talign-self: center;\n\tfont-family: \"Unbound\";\n\tfont-size: 40px;\n}\n\n#to2 {\n\tcolor: var(--10Color);\n}\n\nheader > img {\n\theight: 90px;\n}\n\n#settings {\n\twidth: 100%;\n\tdisplay: flex;\n\tjustify-content: end;\n\ttext-align: center;\n\talign-self: center;\n\tmargin-right: 50px;\n}\n\n#newObjBtns {\n\tcolor: var(--10Color);\n\talign-self: center;\n\tmargin-left: 20px;\n\tmargin-top: 10px;\n\tfont-weight: bold;\n\tfont-family: \"Space\";\n\tcursor: pointer;\n}\n\n.inboxColmOneItems {\n\tbackground-color: var(--30Color);\n\tcolor: white;\n\twidth: 17rem;\n\tborder-radius: 4px;\n}\n\n.inboxColmOneItems > div {\n\tpadding: 2px 8px;\n}\n\nmain {\n\tdisplay: grid;\n\tgrid-area: 2/1/2/4;\n}\n\n#projTaskNav {\n\tdisplay: flex;\n\tflex-direction: column;\n\tpadding-left: 20px;\n\tpadding-top: 15px;\n\tcolor: var(--30Color);\n}\n\nfooter {\n\tposition: absolute;\n\tright: 30px;\n\tbottom: 15px;\n}\n\nfooter > span {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tfont-size: 12px;\n}\n\nfooter > span > a {\n\twidth: 27%;\n\tdisplay: flex;\n\talign-items: center;\n\ttext-decoration: none;\n\tcolor: inherit;\n\tjustify-content: space-between;\n\tmargin-left: 4px;\n}\n\nfooter > span > a > img {\n\tmargin-left: 4px;\n\tfilter: invert(68%) sepia(4%) saturate(5571%) hue-rotate(75deg) brightness(95%) contrast(88%);\n}\n\n#newProjEntryBox,\n#newTaskEntryBox {\n\tdisplay: flex;\n\tflex-direction: column;\n\tbackground-color: var(--30Color);\n\theight: fit-content;\n\twidth: 400px;\n\tcolor: white;\n\tborder-radius: 4px;\n\tposition: absolute;\n\ttop: 25%;\n\tleft: 40%;\n}\n\ninput,\ntextarea {\n\tcaret-color: black;\n}\n\n.colmOneList {\n\tdisplay: flex;\n\tborder-bottom: black 2px solid;\n\tfont-weight: 500;\n\tcursor: pointer;\n\tjustify-content: space-between;\n\ttransition: 250ms;\n}\n\n.colmOnePriority {\n\talign-self: center;\n}\n\n.colmHeaders {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tcolor: var(--60Color);\n\tpadding-right: 15px;\n\tborder-bottom: black 2px solid;\n}\n\n.colmHeaderDueDate {\n\tpadding-right: 15px;\n}\n\n.openArrow {\n\tdisplay: inline-block;\n\tcolor: var(--10Color);\n\tfont-weight: 900;\n\ttransition: 500ms;\n}\n\n.colmOneList:hover {\n\tbackground-color: #424242;\n}\n\n.colmOneList:hover > .colmOneDueDate > .openArrow {\n\ttransform: translate(5px);\n}\n\n.colmOneActiveItem {\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12823,6 +12859,158 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/scripts/index.js":
+/*!******************************!*\
+  !*** ./src/scripts/index.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   setStorage: () => (/* binding */ setStorage)
+/* harmony export */ });
+/* harmony import */ var _project_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project_class */ "./src/scripts/project_class.js");
+/* harmony import */ var _task_class__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task_class */ "./src/scripts/task_class.js");
+/* harmony import */ var _styles_reset_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/reset.css */ "./src/styles/reset.css");
+/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/main.css */ "./src/styles/main.css");
+/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../styles/style.css */ "./src/styles/style.css");
+/* harmony import */ var _assets_images_reshot_icon_dog_face_YE7643ZXK5_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/images/reshot-icon-dog-face-YE7643ZXK5.svg */ "./src/assets/images/reshot-icon-dog-face-YE7643ZXK5.svg");
+/* harmony import */ var _assets_images_iconmonstr_github_3_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/images/iconmonstr-github-3.svg */ "./src/assets/images/iconmonstr-github-3.svg");
+
+
+
+
+
+
+
+
+//Store DOM targets
+const kano = document.getElementById("kanoLogo");
+const github = document.getElementById("githubLogo");
+const cancelCreateBtns = document.getElementsByClassName("cancelCreateBtn");
+const prioritySelect = document.getElementsByClassName("prioritySelect");
+const newProjectBtn = document.getElementById("newProject");
+const newProjBox = document.getElementById("newProjEntryBox");
+const newTaskBtn = document.getElementById("newTask");
+const newTaskBox = document.getElementById("newTaskEntryBox");
+const newProjForm = document.getElementById("newProjForm");
+const newTaskForm = document.getElementById("newTaskForm");
+const colmOneItems = document.getElementsByClassName("inboxColmOneItems");
+let colmOneListItemArr;
+
+// Load local storage data and reapply methods to objects
+(function loadLocalStorage() {
+	if (JSON.parse(localStorage.getItem("savedProjectList"))) {
+		JSON.parse(localStorage.getItem("savedProjectList")).forEach((x) => _project_class__WEBPACK_IMPORTED_MODULE_0__.projectList.push(x));
+	}
+
+	_project_class__WEBPACK_IMPORTED_MODULE_0__.projectList.forEach((proj) => {
+		(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.addProjMethods)(proj);
+	});
+
+	if (JSON.parse(localStorage.getItem("savedIndependentTasks"))) {
+		JSON.parse(localStorage.getItem("savedIndependentTasks")).forEach((x) => _task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks.push(x));
+	}
+
+	_task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks.forEach((task) => (0,_task_class__WEBPACK_IMPORTED_MODULE_1__.addTaskMethods)(task));
+	(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.updateProjDisplay)();
+	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.updateIndependentTaskDisplay)();
+})();
+
+newProjForm.addEventListener("submit", (x) => {
+	x.preventDefault();
+	(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.newProjSubmit)(x);
+	(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.updateProjDisplay)();
+	cancelCreateObj();
+});
+
+newTaskForm.addEventListener("submit", (x) => {
+	x.preventDefault();
+	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.newTaskSubmit)(x);
+	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.updateIndependentTaskDisplay)();
+	cancelCreateObj();
+});
+
+//Set page images
+kano.setAttribute("src", _assets_images_reshot_icon_dog_face_YE7643ZXK5_svg__WEBPACK_IMPORTED_MODULE_5__);
+github.setAttribute("src", _assets_images_iconmonstr_github_3_svg__WEBPACK_IMPORTED_MODULE_6__);
+
+// New Project/Tasks Dialogue Box Control
+newTaskBtn.addEventListener("click", newTaskDialogue);
+function newTaskDialogue() {
+	newTaskBox.style.visibility = "visible";
+	newProjBox.style.visibility = "hidden";
+}
+
+newProjectBtn.addEventListener("click", newProjDialogue);
+function newProjDialogue() {
+	newProjBox.style.visibility = "visible";
+	newTaskBox.style.visibility = "hidden";
+}
+
+function cancelCreateObj() {
+	newTaskBox.style.visibility = "hidden";
+	newProjBox.style.visibility = "hidden";
+}
+
+Array.from(cancelCreateBtns).forEach((x) => {
+	x.addEventListener("click", cancelCreateObj);
+});
+
+//Sort function
+function sortList(listToSort, propertySortBy, ascDesc) {
+	listToSort.sort((a, b) => {
+		let aValue = a[propertySortBy];
+		let bValue = b[propertySortBy];
+		if (aValue > bValue) {
+			return 1 * ascDesc;
+		} else if (aValue < bValue) {
+			return -1 * ascDesc;
+		} else {
+			return 0;
+		}
+	});
+}
+
+Array.from(prioritySelect).forEach((x) => {
+	x.addEventListener("change", changePriorityColor);
+});
+function changePriorityColor(x) {
+	Array.from(prioritySelect).forEach((a) => {
+		switch (a.value) {
+			case "Low":
+				a.style.backgroundColor = "green";
+				break;
+			case "Medium":
+				a.style.backgroundColor = "orange";
+				break;
+			case "High":
+				a.style.backgroundColor = "red";
+				break;
+		}
+	});
+}
+
+//Format "empty" div when no tasks/projs
+Array.from(colmOneItems).forEach((x) => {
+	if (x.childElementCount == 0) {
+		let emptyNode = document.createElement("div");
+		emptyNode.textContent = "None";
+		emptyNode.style.color = "black";
+		emptyNode.style.fontWeight = "500";
+		x.append(emptyNode);
+	}
+});
+
+//Save to local storage when projects/tasks CRUD
+function setStorage() {
+	localStorage.setItem("savedProjectList", JSON.stringify(_project_class__WEBPACK_IMPORTED_MODULE_0__.projectList));
+	localStorage.setItem("savedIndependentTasks", JSON.stringify(_task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks));
+}
+
+
+/***/ }),
+
 /***/ "./src/scripts/project_class.js":
 /*!**************************************!*\
   !*** ./src/scripts/project_class.js ***!
@@ -12833,14 +13021,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Project: () => (/* binding */ Project),
 /* harmony export */   addProjMethods: () => (/* binding */ addProjMethods),
+/* harmony export */   newProjSubmit: () => (/* binding */ newProjSubmit),
 /* harmony export */   newProject: () => (/* binding */ newProject),
-/* harmony export */   projectList: () => (/* binding */ projectList)
+/* harmony export */   projectList: () => (/* binding */ projectList),
+/* harmony export */   updateProjDisplay: () => (/* binding */ updateProjDisplay)
 /* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/scripts/index.js");
+
+
+const colmOneProjList = document.getElementById("projectListDiv");
+
 let projectList = [];
 
 //Create new project
 function newProject(title, description = null, tag = null, due_date = null, due_time = null, priority = null, users = null, teams = null, ...tasks) {
-	projectList.push(new Project(title, description, tag, due_date, due_time, priority, users, teams, ...tasks));
+	let newProj = new Project(title, description, tag, due_date, due_time, priority, users, teams, ...tasks);
+
+	projectList.push(newProj);
 }
 
 //Create Project class
@@ -12849,8 +13046,8 @@ class Project {
 		this.title = title;
 		this.description = description == "" ? null : description;
 		this.tag = tag == "" ? null : tag;
-		if (due_date != "" && due_time != "") {
-			this.dueDateTime = new Date(`${due_date}` + "T" + `${due_time}`);
+		if (due_date && due_time) {
+			this.dueDateTime = new Date(`${due_date}T${due_time}`);
 		} else {
 			this.dueDateTime = due_date != "" ? new Date(due_date) : null;
 		}
@@ -12920,18 +13117,68 @@ function addProjMethods(thisProject) {
 		this.assignedUsers = users;
 		this.assignedTeams = teams;
 		this.recalcCompletion();
-		setStorage();
+		(0,_index__WEBPACK_IMPORTED_MODULE_0__.setStorage)();
 	};
 
 	thisProject.delete = function () {
 		projectList.splice(projectList.indexOf(this), 1);
 	};
 
-	console.log(thisProject);
-	//If project has tasklist add methods to those tasks
-	// if (thisProject.taskList.length > 0) {
-	// 	thisProject.taskList.forEach((x) => addTaskMethods(x));
-	// }
+	// If project has tasklist add methods to those tasks
+	if (thisProject.taskList.length > 0) {
+		thisProject.taskList.forEach((x) => addTaskMethods(x));
+	}
+}
+
+function newProjSubmit(x) {
+	let projInfo = x.target;
+	newProject(projInfo[0].value, projInfo[1].value, projInfo[4].value, projInfo[2].value, projInfo[3].value, projInfo[5].value);
+	(0,_index__WEBPACK_IMPORTED_MODULE_0__.setStorage)();
+}
+
+function updateProjDisplay() {
+	colmOneProjList.innerHTML = "";
+
+	if (projectList.length > 0) {
+		const colmOneTaskHeader = document.createElement("div");
+		colmOneTaskHeader.innerHTML = "<span>Priority</span><span class='colmHeaderDueDate'>Due Date</span>";
+		colmOneTaskHeader.setAttribute("class", "colmHeaders");
+		colmOneProjList.append(colmOneTaskHeader);
+	}
+
+	projectList.forEach((x) => {
+		let projDiv = document.createElement("div");
+		projDiv.setAttribute("class", "colmOneList");
+		let priority = document.createElement("div");
+		priority.setAttribute("class", "colmOnePriority");
+		let title = document.createElement("span");
+		let dueDate = document.createElement("span");
+		dueDate.setAttribute("class", "colmOneDueDate");
+		let openArrow = document.createElement("span");
+		openArrow.textContent = ">";
+		openArrow.setAttribute("class", "openArrow");
+
+		priority.style.width = "8px";
+		priority.style.height = "8px";
+		priority.style.borderRadius = "4px";
+		switch (x.priority) {
+			case "Low":
+				priority.style.backgroundColor = "green";
+				break;
+			case "Medium":
+				priority.style.backgroundColor = "orange";
+				break;
+			case "High":
+				priority.style.backgroundColor = "red";
+				break;
+		}
+		title.textContent = x.title;
+		dueDate.textContent = x.dueDateTime ? new Date(x.dueDateTime).toLocaleDateString() : "No Due Date";
+		dueDate.append(openArrow);
+
+		projDiv.append(priority, title, dueDate);
+		colmOneProjList.appendChild(projDiv);
+	});
 }
 
 
@@ -12948,8 +13195,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Task: () => (/* binding */ Task),
 /* harmony export */   addTaskMethods: () => (/* binding */ addTaskMethods),
 /* harmony export */   independentTasks: () => (/* binding */ independentTasks),
-/* harmony export */   newTask: () => (/* binding */ newTask)
+/* harmony export */   newTask: () => (/* binding */ newTask),
+/* harmony export */   newTaskSubmit: () => (/* binding */ newTaskSubmit),
+/* harmony export */   updateIndependentTaskDisplay: () => (/* binding */ updateIndependentTaskDisplay)
 /* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/scripts/index.js");
+
+
+const colmOneIndependentTasks = document.getElementById("independentTasksDiv");
+
 let independentTasks = [];
 
 //Create new task
@@ -13007,7 +13261,7 @@ function addTaskMethods(task) {
 			});
 		}
 
-		setStorage();
+		(0,_index__WEBPACK_IMPORTED_MODULE_0__.setStorage)();
 	};
 
 	task.addSubTask = function (task = null, title = null, description = null, tag = null, due_date_time = null, priority = null, complete = false, users = null, teams = null) {
@@ -13046,10 +13300,63 @@ function addTaskMethods(task) {
 				this.complete = complete;
 				this.users = users;
 				this.teams = teams;
-				setStorage();
+				(0,_index__WEBPACK_IMPORTED_MODULE_0__.setStorage)();
 			};
 		});
 	}
+}
+
+function newTaskSubmit(x) {
+	let taskInfo = x.target;
+	console.log(taskInfo);
+	newTask(taskInfo[0].value, taskInfo[1].value, taskInfo[4].value, taskInfo[2].value, taskInfo[3].value, taskInfo[5].value);
+	(0,_index__WEBPACK_IMPORTED_MODULE_0__.setStorage)();
+}
+
+function updateIndependentTaskDisplay() {
+	colmOneIndependentTasks.innerHTML = "";
+
+	if (independentTasks.length > 0) {
+		const colmOneTaskHeader = document.createElement("div");
+		colmOneTaskHeader.innerHTML = "<span>Priority</span><span class='colmHeaderDueDate'>Due Date</span>";
+		colmOneTaskHeader.setAttribute("class", "colmHeaders");
+		colmOneIndependentTasks.append(colmOneTaskHeader);
+	}
+
+	independentTasks.forEach((x) => {
+		let projDiv = document.createElement("div");
+		projDiv.setAttribute("class", "colmOneList");
+		let priority = document.createElement("div");
+		priority.setAttribute("class", "colmOnePriority");
+		let title = document.createElement("span");
+		let dueDate = document.createElement("span");
+		dueDate.setAttribute("class", "colmOneDueDate");
+		let openArrow = document.createElement("span");
+		openArrow.textContent = ">";
+		openArrow.setAttribute("class", "openArrow");
+
+		priority.style.width = "8px";
+		priority.style.height = "8px";
+		priority.style.borderRadius = "4px";
+		switch (x.priority) {
+			case "Low":
+				priority.style.backgroundColor = "green";
+				break;
+			case "Medium":
+				priority.style.backgroundColor = "orange";
+				break;
+			case "High":
+				priority.style.backgroundColor = "red";
+				break;
+		}
+		title.textContent = x.title;
+		console.log();
+		dueDate.textContent = x.dueDateTime ? new Date(x.dueDateTime).toLocaleDateString() : "No Due Date";
+		dueDate.append(openArrow);
+
+		projDiv.append(priority, title, dueDate);
+		colmOneIndependentTasks.appendChild(projDiv);
+	});
 }
 
 
@@ -13442,195 +13749,12 @@ module.exports = __webpack_require__.p + "2cb7513d7315bcc02c0c.svg";
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-/*!******************************!*\
-  !*** ./src/scripts/index.js ***!
-  \******************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   projTaskNav: () => (/* binding */ projTaskNav)
-/* harmony export */ });
-/* harmony import */ var _project_class__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project_class */ "./src/scripts/project_class.js");
-/* harmony import */ var _task_class__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task_class */ "./src/scripts/task_class.js");
-/* harmony import */ var _styles_reset_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/reset.css */ "./src/styles/reset.css");
-/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/main.css */ "./src/styles/main.css");
-/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../styles/style.css */ "./src/styles/style.css");
-/* harmony import */ var _assets_images_reshot_icon_dog_face_YE7643ZXK5_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/images/reshot-icon-dog-face-YE7643ZXK5.svg */ "./src/assets/images/reshot-icon-dog-face-YE7643ZXK5.svg");
-/* harmony import */ var _assets_images_iconmonstr_github_3_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/images/iconmonstr-github-3.svg */ "./src/assets/images/iconmonstr-github-3.svg");
-
-
-
-
-
-
-
-
-//Store DOM targets
-const kano = document.getElementById("kanoLogo");
-const github = document.getElementById("githubLogo");
-const cancelCreateBtns = document.getElementsByClassName("cancelCreateBtn");
-const projTaskNav = document.getElementById("projTaskNav");
-const prioritySelect = document.getElementsByClassName("prioritySelect");
-const newProjectBtn = document.getElementById("newProject");
-const newProjBox = document.getElementById("newProjEntryBox");
-const newTaskBtn = document.getElementById("newTask");
-const newTaskBox = document.getElementById("newTaskEntryBox");
-const newProjForm = document.getElementById("newProjForm");
-const newTaskForm = document.getElementById("newTaskForm");
-const colmOneItems = document.getElementsByClassName("inboxColmOneItems");
-const colmOneProjList = document.getElementById("projectListDiv");
-
-// Load local storage data and reapply methods to objects
-(function loadLocalStorage() {
-	JSON.parse(localStorage.getItem("savedProjectList")).forEach((x) => _project_class__WEBPACK_IMPORTED_MODULE_0__.projectList.push(x));
-
-	_project_class__WEBPACK_IMPORTED_MODULE_0__.projectList.forEach((proj) => {
-		(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.addProjMethods)(proj);
-	});
-
-	JSON.parse(localStorage.getItem("savedIndependentTasks")).forEach((x) => _task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks.push(x));
-
-	_task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks.forEach((task) => (0,_task_class__WEBPACK_IMPORTED_MODULE_1__.addTaskMethods)(task));
-	updateTaskProjDisplay();
-})();
-
-newProjForm.addEventListener("submit", (x) => {
-	x.preventDefault();
-	newProjSubmit(x);
-	updateTaskProjDisplay();
-	cancelCreateObj();
-});
-
-newTaskForm.addEventListener("submit", (x) => {
-	x.preventDefault();
-	newTaskSubmit(x);
-	updateTaskProjDisplay();
-	cancelCreateObj();
-});
-
-//Set page images
-kano.setAttribute("src", _assets_images_reshot_icon_dog_face_YE7643ZXK5_svg__WEBPACK_IMPORTED_MODULE_5__);
-github.setAttribute("src", _assets_images_iconmonstr_github_3_svg__WEBPACK_IMPORTED_MODULE_6__);
-
-function updateTaskProjDisplay() {
-	_project_class__WEBPACK_IMPORTED_MODULE_0__.projectList.forEach((x) => {
-		let projDiv = document.createElement("div");
-		projDiv.setAttribute("class", "colmOneProjList");
-		let priority = document.createElement("div");
-		priority.style.alignSelf = "center";
-		let title = document.createElement("span");
-		let dueDate = document.createElement("span");
-
-		priority.style.width = "8px";
-		priority.style.height = "8px";
-		priority.style.borderRadius = "4px";
-		switch (x.priority) {
-			case "Low":
-				priority.style.backgroundColor = "green";
-				break;
-			case "Medium":
-				priority.style.backgroundColor = "orange";
-				break;
-			case "High":
-				priority.style.backgroundColor = "red";
-				break;
-		}
-		title.textContent = x.title;
-		dueDate.textContent = x.dueDateTime ? x.dueDateTime.toLocaleDateString() : "No Due Date";
-
-		projDiv.append(priority, title, dueDate);
-		colmOneProjList.append(projDiv);
-	});
-}
-newTaskBtn.addEventListener("click", newTaskDialogue);
-function newTaskDialogue() {
-	newTaskBox.style.visibility = "visible";
-	newProjBox.style.visibility = "hidden";
-}
-
-newProjectBtn.addEventListener("click", newProjDialogue);
-function newProjDialogue() {
-	newProjBox.style.visibility = "visible";
-	newTaskBox.style.visibility = "hidden";
-}
-
-function cancelCreateObj() {
-	newTaskBox.style.visibility = "hidden";
-	newProjBox.style.visibility = "hidden";
-}
-
-Array.from(cancelCreateBtns).forEach((x) => {
-	x.addEventListener("click", cancelCreateObj);
-});
-
-//Sort function
-function sortList(listToSort, propertySortBy, ascDesc) {
-	listToSort.sort((a, b) => {
-		let aValue = a[propertySortBy];
-		let bValue = b[propertySortBy];
-		if (aValue > bValue) {
-			return 1 * ascDesc;
-		} else if (aValue < bValue) {
-			return -1 * ascDesc;
-		} else {
-			return 0;
-		}
-	});
-}
-
-Array.from(prioritySelect).forEach((x) => {
-	x.addEventListener("change", changePriorityColor);
-});
-function changePriorityColor(x) {
-	Array.from(prioritySelect).forEach((a) => {
-		switch (a.value) {
-			case "Low":
-				a.style.backgroundColor = "green";
-				break;
-			case "Medium":
-				a.style.backgroundColor = "orange";
-				break;
-			case "High":
-				a.style.backgroundColor = "red";
-				break;
-		}
-	});
-}
-
-function newProjSubmit(x) {
-	let projInfo = x.target;
-	console.log(projInfo[2].value, projInfo[3].value);
-	(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.newProject)(projInfo[0].value, projInfo[1].value, projInfo[4].value, projInfo[2], projInfo[3].value, projInfo[5].value);
-	setStorage();
-}
-
-function newTaskSubmit(x) {
-	let taskInfo = x.target;
-	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.newTask)(taskInfo[0].value, taskInfo[1].value, taskInfo[4].value, taskInfo[2].value, taskInfo[3].value, taskInfo[5].value);
-	setStorage();
-}
-
-//Format "empty" div when no tasks/projs
-Array.from(colmOneItems).forEach((x) => {
-	if (x.childElementCount == 0) {
-		let emptyNode = document.createElement("div");
-		emptyNode.textContent = "Empty";
-		emptyNode.style.color = "black";
-		emptyNode.style.fontWeight = "500";
-		x.append(emptyNode);
-	}
-});
-
-//Save to local storage when projects/tasks CRUD
-function setStorage() {
-	localStorage.setItem("savedProjectList", JSON.stringify(_project_class__WEBPACK_IMPORTED_MODULE_0__.projectList));
-	localStorage.setItem("savedIndependentTasks", JSON.stringify(_task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks));
-}
-
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/scripts/index.js");
+/******/ 	
 /******/ })()
 ;
 //# sourceMappingURL=main.js.map
