@@ -1,4 +1,5 @@
-$ten_color: #66bb6a;
+$ten_color: #19631d;
+$bright_text: rgb(184, 184, 184);
 
 $form-select-border-color: $ten_color;
 $form-select-border-width: 2.5px;
@@ -12,5 +13,6 @@ $input-group-addon-bg: $ten_color;
 $input-group-addon-border-color: $ten_color;
 $blue: $ten_color;
 $input-border-radius-sm: 4px;
+$input-group-addon-color: white;
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";

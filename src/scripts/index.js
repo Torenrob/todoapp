@@ -204,6 +204,9 @@ function mkColmTwoDisplay(listItem) {
 	colmTwoDisplay.setAttribute("id", "colmTwoDisplay");
 	let colmTwoTitle = document.createElement("div");
 	colmTwoTitle.setAttribute("id", "colmTwoTitle");
+	let editButton = document.createElement("button");
+	editButton.classList.add("btn", "btn-primary", "btn-sm", "editBtn");
+	editButton.textContent = "Edit";
 	let colmTwoPriority = document.createElement("span");
 	colmTwoPriority.setAttribute("id", "colmTwoPriority");
 	let colmTwoTag = document.createElement("id", "span");
@@ -214,6 +217,8 @@ function mkColmTwoDisplay(listItem) {
 	colmTwoDescription.setAttribute("id", "colmTwoDescription");
 	let colmTwoTasksList = document.createElement("div");
 	colmTwoTasksList.setAttribute("id", "colmTwoTasksList");
+	colmTwoTasksList.innerHTML =
+		'<div style="display: flex; justify-content: space-between;"><span style="font-size: 25px;">Tasks</span><button class="btn btn-primary btn-sm" style="height: 80%; align-self: center;">Add Task</button></div>';
 
 	let objKey = listItem.children[3].textContent;
 	let targetObj;
@@ -222,7 +227,11 @@ function mkColmTwoDisplay(listItem) {
 		let dueDate = new Date(targetObj.dueDateTime).toDateString();
 		let dueTime = new Date(targetObj.dueDateTime).toLocaleTimeString();
 		dueTime = dueTime.replace(/:(\d{2})\s/, "").toLowerCase();
-		colmTwoTitle.textContent = targetObj.title;
+		let title = document.createElement("span");
+		title.textContent = targetObj.title;
+		title.classList.add("titleDisplay");
+		colmTwoTitle.append(title);
+		colmTwoTitle.append(editButton);
 		colmTwoPriority.textContent = `${targetObj.priority}`;
 		colmTwoTag.textContent = `Tag: ${targetObj.tag}`;
 		colmTwoDueDate.textContent = `Due: ${dueDate} ${dueTime}`;
@@ -242,13 +251,14 @@ function mkColmTwoDisplay(listItem) {
 	}
 
 	if (objKey.includes("project")) {
-		targetObj = projectList[`${objKey[objKey.length - 1]}`];
+		targetObj = projectList[`${objKey.split(" ")[1]}`];
 		let thisTaskList = targetObj.taskList;
 		formatDivs();
 		thisTaskList.forEach((x) => makeProjTaskListDisplay(x, colmTwoTasksList, "project"));
 	} else if (objKey.includes("task")) {
-		targetObj = independentTasks[`${objKey[objKey.length - 1]}`];
+		targetObj = independentTasks[`${objKey.split(" ")[1]}`];
 		let thisTaskList = targetObj.subTasks;
+		colmTwoTasksList.children[0].children[0].textContent = "SubTasks";
 		formatDivs();
 		thisTaskList.forEach((x) => makeProjTaskListDisplay(x, colmTwoTasksList, "task"));
 	}
