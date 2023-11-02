@@ -1,5 +1,5 @@
-import { projectList, Project, newProject, addProjMethods, newProjSubmit, updateProjDisplay } from "./project_class";
-import { independentTasks, Task, newTask, addTaskMethods, newTaskSubmit, updateIndependentTaskDisplay } from "./task_class";
+import { projectList, Project, newProject, addProjMethods, newProjSubmit, updateProjDisplay, mkTaskSelect } from "./project_class";
+import { independentTasks, Task, newTask, addTaskMethods, newTaskSubmit, updateIndependentTaskDisplay, mkprojSelect } from "./task_class";
 import "../styles/reset.css";
 import "../styles/main.css";
 import "../styles/style.css";
@@ -17,8 +17,9 @@ const newTaskBtn = document.getElementById("newTask");
 const newTaskBox = document.getElementById("newTaskEntryBox");
 const newProjForm = document.getElementById("newProjForm");
 const newTaskForm = document.getElementById("newTaskForm");
-const itemsList = document.getElementsByClassName("itemsList");
+const colmOne = document.getElementsByClassName("inboxColmOneList");
 const projTaskDisplay = document.getElementById("projTaskDisplay");
+let itemsList;
 
 // Load local storage data and reapply methods to objects
 (function loadLocalStorage() {
@@ -37,7 +38,9 @@ const projTaskDisplay = document.getElementById("projTaskDisplay");
 	independentTasks.forEach((task) => addTaskMethods(task));
 	updateProjDisplay();
 	updateIndependentTaskDisplay();
-	colmOneItemClick();
+	mkTaskSelect(independentTasks);
+	mkprojSelect(projectList);
+	mkColmOneEmptyNode();
 })();
 
 newProjForm.addEventListener("submit", (x) => {
@@ -45,16 +48,32 @@ newProjForm.addEventListener("submit", (x) => {
 	newProjSubmit(x);
 	updateProjDisplay();
 	cancelCreateObj();
+	mkprojSelect(projectList);
+	mkColmOneEmptyNode();
 	x.target.reset();
 });
 
 newTaskForm.addEventListener("submit", (x) => {
 	x.preventDefault();
-	newTaskSubmit(x);
+	newTaskSubmit(x, projectList);
 	updateIndependentTaskDisplay();
+	cnvrtProjChoice(x.target.children[0].children[1].children[1].value);
 	cancelCreateObj();
+	mkTaskSelect(independentTasks);
+	mkColmOneEmptyNode();
 	x.target.reset();
 });
+
+//Take project choice from New Task Sub and convert to correct list Item for mkColmTwoDisplay function
+function cnvrtProjChoice(projChoice) {
+	let listItemID = `project ${projChoice}`;
+
+	Array.from(itemsList).forEach((itemNode) => {
+		if (itemNode.children[3].textContent === listItemID) {
+			mkColmTwoDisplay(itemNode);
+		}
+	});
+}
 
 //Set page images
 kano.setAttribute("src", kanoLogo);
@@ -119,15 +138,17 @@ function changePriorityColor(a) {
 }
 
 //Format "empty" div when no tasks/projs
-Array.from(itemsList).forEach((x) => {
-	if (x.childElementCount == 0) {
-		let emptyNode = document.createElement("div");
-		emptyNode.textContent = "None";
-		emptyNode.style.color = "black";
-		emptyNode.style.fontWeight = "500";
-		x.append(emptyNode);
-	}
-});
+function mkColmOneEmptyNode() {
+	Array.from(colmOne).forEach((x) => {
+		if (x.childElementCount == 0) {
+			let emptyNode = document.createElement("div");
+			emptyNode.textContent = "None";
+			emptyNode.style.color = "rgb(73, 73, 73)";
+			emptyNode.style.fontWeight = "600";
+			x.append(emptyNode);
+		}
+	});
+}
 
 //Save to local storage when projects/tasks CRUD
 export function setStorage() {
@@ -166,7 +187,6 @@ export function makeProjTaskListDisplay(x, targetDiv, type) {
 			break;
 	}
 	title.textContent = x.title;
-	console.log();
 	dueDate.textContent = x.dueDateTime ? new Date(x.dueDateTime).toLocaleDateString() : "No Due Date";
 	dueDate.append(openArrow);
 
@@ -178,23 +198,31 @@ export function makeProjTaskListDisplay(x, targetDiv, type) {
 
 	projDiv.append(priority, title, dueDate, objID);
 	targetDiv.appendChild(projDiv);
+
+	colmOneItemClick();
 }
 
-// Watch Column One Items for Click to Open details
+// Add Event listener to column one items
 export function colmOneItemClick() {
-	let colmOneListItems = document.getElementsByClassName("colmOneListItems");
+	itemsList = document.getElementsByClassName("itemsList");
 
 	Array.from(itemsList).forEach((listItem) => {
-		listItem.addEventListener("click", (x) => {
-			Array.from(itemsList).forEach((n) => {
-				n.classList.remove("selected");
-				n.classList.add("unselected");
-			});
-			listItem.classList.add("selected");
-			listItem.classList.remove("unselected");
-			mkColmTwoDisplay(listItem);
-		});
+		if (listItem.getAttribute("clickListener") !== "true") {
+			listItem.addEventListener("click", (x) => colmOneSelector(listItem));
+			listItem.setAttribute("clickListener", "true");
+		}
 	});
+}
+
+function colmOneSelector(selected) {
+	Array.from(itemsList).forEach((n) => {
+		n.classList.remove("selected");
+		n.classList.add("unselected");
+	});
+	selected.classList.add("selected");
+	selected.classList.remove("unselected");
+	console.log(selected);
+	mkColmTwoDisplay(selected);
 }
 
 function mkColmTwoDisplay(listItem) {
@@ -218,15 +246,23 @@ function mkColmTwoDisplay(listItem) {
 	let colmTwoTasksList = document.createElement("div");
 	colmTwoTasksList.setAttribute("id", "colmTwoTasksList");
 	colmTwoTasksList.innerHTML =
-		'<div style="display: flex; justify-content: space-between;"><span style="font-size: 25px;">Tasks</span><button class="btn btn-primary btn-sm" style="height: 80%; align-self: center;">Add Task</button></div>';
+		'<div style="display: flex; justify-content: space-between;"><span style="font-size: 25px;">Tasks</span><button class="btn btn-primary btn-sm projTaskViewAddTaskBtn" style="height: 80%; align-self: center;">Add Task</button></div>';
 
 	let objKey = listItem.children[3].textContent;
 	let targetObj;
 
 	function formatDivs() {
-		let dueDate = new Date(targetObj.dueDateTime).toDateString();
-		let dueTime = new Date(targetObj.dueDateTime).toLocaleTimeString();
-		dueTime = dueTime.replace(/:(\d{2})\s/, "").toLowerCase();
+		let dueDate;
+		let dueTime;
+		let nullDue = true;
+
+		if (targetObj.dueDateTime) {
+			dueDate = new Date(targetObj.dueDateTime).toDateString();
+			dueTime = new Date(targetObj.dueDateTime).toLocaleTimeString();
+			dueTime = dueTime.replace(/:(\d{2})\s/, "").toLowerCase();
+		} else {
+			nullDue = null;
+		}
 		let title = document.createElement("span");
 		title.textContent = targetObj.title;
 		title.classList.add("titleDisplay");
@@ -234,7 +270,7 @@ function mkColmTwoDisplay(listItem) {
 		colmTwoTitle.append(editButton);
 		colmTwoPriority.textContent = `${targetObj.priority}`;
 		colmTwoTag.textContent = `Tag: ${targetObj.tag}`;
-		colmTwoDueDate.textContent = `Due: ${dueDate} ${dueTime}`;
+		colmTwoDueDate.textContent = nullDue ? `Due: ${dueDate} ${dueTime}` : "No Due Date";
 		colmTwoDescription.textContent = `Description: ${targetObj.description}`;
 
 		switch (targetObj.priority) {

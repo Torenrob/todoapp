@@ -1,4 +1,5 @@
-import { setStorage, colmOneItemClick, makeProjTaskListDisplay } from "./index";
+import { setStorage, makeProjTaskListDisplay } from "./index";
+import { addTaskMethods } from "./task_class";
 
 const colmOneProjList = document.getElementById("projectListDiv");
 
@@ -104,7 +105,6 @@ export function addProjMethods(thisProject) {
 export function newProjSubmit(x) {
 	let projInfo = x.target;
 	newProject(projInfo[0].value, projInfo[1].value, projInfo[4].value, projInfo[2].value, projInfo[3].value, projInfo[5].value);
-	colmOneItemClick();
 	setStorage();
 }
 
@@ -119,4 +119,17 @@ export function updateProjDisplay() {
 	}
 
 	projectList.forEach((x) => makeProjTaskListDisplay(x, colmOneProjList, "project"));
+}
+
+// Fill the Add Task list for New Project Dialogue Box
+export function mkTaskSelect(independentTasks) {
+	const projTaskSelect = document.getElementById("projTaskSelection");
+
+	independentTasks.forEach((task) => {
+		let taskOption = document.createElement("option");
+
+		taskOption.setAttribute("value", independentTasks.indexOf(task));
+		taskOption.textContent = `${task.title} Due: ${new Date(task.dueDateTime).toDateString().slice(4)}`;
+		projTaskSelect.append(taskOption);
+	});
 }

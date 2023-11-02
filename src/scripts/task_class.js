@@ -1,4 +1,4 @@
-import { setStorage, colmOneItemClick, makeProjTaskListDisplay } from "./index";
+import { setStorage, makeProjTaskListDisplay } from "./index";
 
 const colmOneIndependentTasks = document.getElementById("independentTasksDiv");
 
@@ -13,7 +13,11 @@ export function newTask(title, description = null, tag = null, due_date = null, 
 		independentTasks.push(new_task);
 	} //If there is an existing project add to project task list
 	else {
-		taskFolder.taskList ? taskFolder.taskList.push(new_task) : taskFolder.subTasks(new_task);
+		if (taskFolder.taskList) {
+			taskFolder.taskList.push(new_task);
+		} else {
+			taskFolder.subTasks(new_task);
+		}
 	}
 }
 
@@ -104,11 +108,9 @@ export function addTaskMethods(task) {
 	}
 }
 
-export function newTaskSubmit(x) {
+export function newTaskSubmit(x, proj) {
 	let taskInfo = x.target;
-	console.log(taskInfo);
-	newTask(taskInfo[0].value, taskInfo[1].value, taskInfo[4].value, taskInfo[2].value, taskInfo[3].value, taskInfo[5].value);
-	colmOneItemClick();
+	newTask(taskInfo[1].value, taskInfo[2].value, taskInfo[5].value, taskInfo[3].value, taskInfo[4].value, taskInfo[6].value, null, null, proj[taskInfo[0].value]);
 	setStorage();
 }
 
@@ -123,4 +125,16 @@ export function updateIndependentTaskDisplay() {
 	}
 
 	independentTasks.forEach((x) => makeProjTaskListDisplay(x, colmOneIndependentTasks, "task"));
+}
+
+// Fill the Add Task list for New Project Dialogue Box
+export function mkprojSelect(projectList) {
+	const taskProjSelect = document.getElementById("taskProjSelection");
+
+	projectList.forEach((proj) => {
+		let projOption = document.createElement("option");
+		projOption.setAttribute("value", projectList.indexOf(proj));
+		projOption.textContent = `${proj.title} Due: ${new Date(proj.dueDateTime).toDateString().slice(4)}`;
+		taskProjSelect.append(projOption);
+	});
 }

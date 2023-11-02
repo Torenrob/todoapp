@@ -12317,6 +12317,7 @@ textarea {
 	color: var(--30Color);
 	display: grid;
 	grid-template-columns: 1fr 2fr 1fr;
+	padding-top: 1px;
 }
 
 #colmTwoPriority {
@@ -12325,8 +12326,10 @@ textarea {
 	border-radius: 0.25rem;
 	grid-area: 1/4/1/6;
 	text-align: center;
+	text-justify: distribute;
 	margin-left: 4px;
 	color: var(--30Color);
+	padding-top: 3px;
 }
 
 .titleDisplay {
@@ -12336,22 +12339,34 @@ textarea {
 .editBtn {
 	grid-area: 1/3/1/4;
 	font-weight: bold;
+	font-size: 10px;
 	color: var(--30Color);
+	margin-right: 2px;
+	height: 80%;
+	place-self: center;
+	/* text-justify: inter-word; */
 }
 
 #colmTwoTag {
 	font-size: medium;
 	grid-area: 2/2/2/2;
+	border-bottom: 2px var(--10Color) solid;
+	border-right: 2px var(--10Color) solid;
+	text-align: center;
 }
 
 #colmTwoDueDate {
 	font-size: medium;
 	grid-area: 2/3/2/5;
+	padding-left: 3px;
+	border-bottom: 2px var(--10Color) solid;
+	text-align: center;
 }
 
 #colmTwoDescription {
 	font-size: medium;
 	grid-area: 3/2/3/5;
+	padding-top: 3px;
 }
 
 #colmTwoTasksList {
@@ -12359,7 +12374,17 @@ textarea {
 	flex-direction: column;
 	grid-area: 4/1/4/6;
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"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","sourcesContent":["@font-face {\n\tfont-family: \"quickSand\";\n\tsrc: url(../assets/fonts/Quicksand-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Space\";\n\tsrc: url(../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Unbound\";\n\tsrc: url(../assets/fonts/Unbounded-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Lilita\";\n\tsrc: url(../assets/fonts/LilitaOne-Regular.ttf);\n}\n\n:root {\n\t--60Color: #09173b;\n\t--30Color: #00011f;\n\t--10Color: #19631d;\n\t--brightText: rgb(184, 184, 184);\n}\n\nbody {\n\tbackground: var(--60Color);\n\tdisplay: grid;\n\theight: 100vh;\n\tgrid-template-columns: 1fr 3fr 1fr;\n\tgrid-template-rows: 0.5fr 5fr 0.25fr;\n\tfont-family: \"quickSand\";\n\tcolor: var(--brightText);\n\tcaret-color: transparent;\n}\n\nheader {\n\tgrid-area: 1/1/1/4;\n\tdisplay: flex;\n\tpadding-left: 0px;\n\tpadding-top: 10px;\n\tpadding-right: 15px;\n}\n\nheader > span {\n\talign-self: center;\n\tfont-family: \"Unbound\";\n\tfont-size: 40px;\n}\n\n#to2 {\n\tcolor: var(--10Color);\n}\n\nheader > img {\n\theight: 90px;\n}\n\n#settings {\n\twidth: 100%;\n\tdisplay: flex;\n\tjustify-content: end;\n\ttext-align: center;\n\talign-self: center;\n\tmargin-right: 50px;\n}\n\n#newObjBtns {\n\tcolor: var(--10Color);\n\talign-self: center;\n\tmargin-left: 20px;\n\tmargin-top: 10px;\n\tfont-weight: bold;\n\tfont-family: \"Space\";\n\tcursor: pointer;\n}\n\n.inboxColmOneList {\n\tbackground-color: var(--30Color);\n\tcolor: var(--brightText);\n\twidth: 17rem;\n\tborder-radius: 4px;\n}\n\n.inboxColmOneList > div {\n\tpadding: 2px 8px;\n}\n\nmain {\n\tdisplay: grid;\n\tgrid-area: 2/1/2/4;\n\tgrid-template-rows: 0.25fr 4fr;\n\tgrid-template-columns: 0.7fr 4fr;\n}\n\n#newObjBtns {\n\tgrid-area: 1/1/1/1;\n}\n\n#projTaskNav {\n\tgrid-area: 2/1/3/1;\n\tdisplay: flex;\n\tflex-direction: column;\n\tpadding-left: 20px;\n\tpadding-top: 15px;\n\tcolor: var(--brightText);\n}\n\nfooter {\n\tposition: absolute;\n\tright: 30px;\n\tbottom: 15px;\n}\n\nfooter > span {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tfont-size: 12px;\n}\n\nfooter > span > a {\n\twidth: 27%;\n\tdisplay: flex;\n\talign-items: center;\n\ttext-decoration: none;\n\tcolor: inherit;\n\tjustify-content: space-between;\n\tmargin-left: 4px;\n}\n\nfooter > span > a > img {\n\tmargin-left: 4px;\n\tfilter: invert(68%) sepia(4%) saturate(5571%) hue-rotate(75deg) brightness(95%) contrast(88%);\n}\n\n#newProjEntryBox,\n#newTaskEntryBox {\n\tdisplay: flex;\n\tflex-direction: column;\n\tbackground-color: var(--30Color);\n\theight: fit-content;\n\twidth: 400px;\n\tcolor: var(--brightText);\n\tborder-radius: 4px;\n\tposition: absolute;\n\ttop: 25%;\n\tleft: 40%;\n}\n\ninput,\ntextarea {\n\tcaret-color: black;\n}\n\n.itemsList {\n\tdisplay: flex;\n\tfont-weight: 500;\n\tcursor: pointer;\n\tjustify-content: space-between;\n\ttransition: 250ms;\n}\n\n.itemsList:hover {\n\tbackground-color: var(--10Color);\n\tcolor: var(--30Color);\n}\n\n.itemsList:hover > .colmOneDueDate > .openArrow {\n\ttransform: translate(5px);\n\tcolor: var(--30Color);\n}\n\n.selected {\n\tborder: var(--10Color) 2px solid;\n\tborder-radius: 0.25rem;\n}\n\n.selected > .colmOneDueDate > .openArrow {\n\ttransform: translate(5px);\n}\n\n.unselected {\n\tborder-bottom: var(--60Color) 2px solid;\n}\n\n.openArrow {\n\tdisplay: inline-block;\n\tfont-weight: 900;\n\ttransition: 500ms;\n\tjustify-self: center;\n\tpadding-left: 2px;\n\tcolor: var(--10Color);\n}\n\n.colmOnePriority {\n\talign-self: center;\n}\n\n.colmHeaders {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tpadding-right: 15px;\n\tborder-bottom: var(--60Color) 2px solid;\n}\n\n.colmHeaderDueDate {\n\tpadding-right: 15px;\n}\n\n#projTaskDisplay {\n\tdisplay: flex;\n\tgrid-area: 2/2/3/3;\n}\n\n#colmTwoDisplay {\n\tdisplay: grid;\n\tgrid-template-columns: 0.1fr 0.5fr 1fr 0.5fr 0.1fr;\n\tgrid-template-rows: 0.5fr 0.5fr 1fr 2fr;\n\tbackground-color: var(--30Color);\n\tborder-radius: 0.25rem;\n\theight: fit-content;\n\tmargin: 0.125rem;\n\tmargin-top: 51.5px;\n\tpadding: 0.4rem;\n}\n\n#colmTwoTitle {\n\tfont-size: larger;\n\tfont-weight: bolder;\n\ttext-align: center;\n\tbackground-color: var(--10Color);\n\tborder-radius: 0.25rem;\n\tgrid-area: 1/1/1/4;\n\tcolor: var(--30Color);\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 2fr 1fr;\n}\n\n#colmTwoPriority {\n\tfont-size: medium;\n\tfont-weight: bold;\n\tborder-radius: 0.25rem;\n\tgrid-area: 1/4/1/6;\n\ttext-align: center;\n\tmargin-left: 4px;\n\tcolor: var(--30Color);\n}\n\n.titleDisplay {\n\tgrid-area: 1/2/1/3;\n}\n\n.editBtn {\n\tgrid-area: 1/3/1/4;\n\tfont-weight: bold;\n\tcolor: var(--30Color);\n}\n\n#colmTwoTag {\n\tfont-size: medium;\n\tgrid-area: 2/2/2/2;\n}\n\n#colmTwoDueDate {\n\tfont-size: medium;\n\tgrid-area: 2/3/2/5;\n}\n\n#colmTwoDescription {\n\tfont-size: medium;\n\tgrid-area: 3/2/3/5;\n}\n\n#colmTwoTasksList {\n\tdisplay: flex;\n\tflex-direction: column;\n\tgrid-area: 4/1/4/6;\n}\n"],"sourceRoot":""}]);
+
+#colmTwoTasksList .itemsList {
+	padding: 0px 7px;
+	border-radius: 0.25rem;
+}
+
+#colmTwoTasksList .projTaskViewAddTaskBtn {
+	color: var(--30Color);
+	font-weight: bold;
+}
+`, "",{"version":3,"sources":["webpack://./src/styles/style.css"],"names":[],"mappings":"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","sourcesContent":["@font-face {\n\tfont-family: \"quickSand\";\n\tsrc: url(../assets/fonts/Quicksand-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Space\";\n\tsrc: url(../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Unbound\";\n\tsrc: url(../assets/fonts/Unbounded-VariableFont_wght.ttf) format(truetype);\n}\n\n@font-face {\n\tfont-family: \"Lilita\";\n\tsrc: url(../assets/fonts/LilitaOne-Regular.ttf);\n}\n\n:root {\n\t--60Color: #09173b;\n\t--30Color: #00011f;\n\t--10Color: #19631d;\n\t--brightText: rgb(184, 184, 184);\n}\n\nbody {\n\tbackground: var(--60Color);\n\tdisplay: grid;\n\theight: 100vh;\n\tgrid-template-columns: 1fr 3fr 1fr;\n\tgrid-template-rows: 0.5fr 5fr 0.25fr;\n\tfont-family: \"quickSand\";\n\tcolor: var(--brightText);\n\tcaret-color: transparent;\n}\n\nheader {\n\tgrid-area: 1/1/1/4;\n\tdisplay: flex;\n\tpadding-left: 0px;\n\tpadding-top: 10px;\n\tpadding-right: 15px;\n}\n\nheader > span {\n\talign-self: center;\n\tfont-family: \"Unbound\";\n\tfont-size: 40px;\n}\n\n#to2 {\n\tcolor: var(--10Color);\n}\n\nheader > img {\n\theight: 90px;\n}\n\n#settings {\n\twidth: 100%;\n\tdisplay: flex;\n\tjustify-content: end;\n\ttext-align: center;\n\talign-self: center;\n\tmargin-right: 50px;\n}\n\n#newObjBtns {\n\tcolor: var(--10Color);\n\talign-self: center;\n\tmargin-left: 20px;\n\tmargin-top: 10px;\n\tfont-weight: bold;\n\tfont-family: \"Space\";\n\tcursor: pointer;\n}\n\n.inboxColmOneList {\n\tbackground-color: var(--30Color);\n\tcolor: var(--brightText);\n\twidth: 17rem;\n\tborder-radius: 4px;\n}\n\n.inboxColmOneList > div {\n\tpadding: 2px 8px;\n}\n\nmain {\n\tdisplay: grid;\n\tgrid-area: 2/1/2/4;\n\tgrid-template-rows: 0.25fr 4fr;\n\tgrid-template-columns: 0.7fr 4fr;\n}\n\n#newObjBtns {\n\tgrid-area: 1/1/1/1;\n}\n\n#projTaskNav {\n\tgrid-area: 2/1/3/1;\n\tdisplay: flex;\n\tflex-direction: column;\n\tpadding-left: 20px;\n\tpadding-top: 15px;\n\tcolor: var(--brightText);\n}\n\nfooter {\n\tposition: absolute;\n\tright: 30px;\n\tbottom: 15px;\n}\n\nfooter > span {\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tfont-size: 12px;\n}\n\nfooter > span > a {\n\twidth: 27%;\n\tdisplay: flex;\n\talign-items: center;\n\ttext-decoration: none;\n\tcolor: inherit;\n\tjustify-content: space-between;\n\tmargin-left: 4px;\n}\n\nfooter > span > a > img {\n\tmargin-left: 4px;\n\tfilter: invert(68%) sepia(4%) saturate(5571%) hue-rotate(75deg) brightness(95%) contrast(88%);\n}\n\n#newProjEntryBox,\n#newTaskEntryBox {\n\tdisplay: flex;\n\tflex-direction: column;\n\tbackground-color: var(--30Color);\n\theight: fit-content;\n\twidth: 400px;\n\tcolor: var(--brightText);\n\tborder-radius: 4px;\n\tposition: absolute;\n\ttop: 25%;\n\tleft: 40%;\n}\n\ninput,\ntextarea {\n\tcaret-color: black;\n}\n\n.itemsList {\n\tdisplay: flex;\n\tfont-weight: 500;\n\tcursor: pointer;\n\tjustify-content: space-between;\n\ttransition: 250ms;\n}\n\n.itemsList:hover {\n\tbackground-color: var(--10Color);\n\tcolor: var(--30Color);\n}\n\n.itemsList:hover > .colmOneDueDate > .openArrow {\n\ttransform: translate(5px);\n\tcolor: var(--30Color);\n}\n\n.selected {\n\tborder: var(--10Color) 2px solid;\n\tborder-radius: 0.25rem;\n}\n\n.selected > .colmOneDueDate > .openArrow {\n\ttransform: translate(5px);\n}\n\n.unselected {\n\tborder-bottom: var(--60Color) 2px solid;\n}\n\n.openArrow {\n\tdisplay: inline-block;\n\tfont-weight: 900;\n\ttransition: 500ms;\n\tjustify-self: center;\n\tpadding-left: 2px;\n\tcolor: var(--10Color);\n}\n\n.colmOnePriority {\n\talign-self: center;\n}\n\n.colmHeaders {\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tpadding-right: 15px;\n\tborder-bottom: var(--60Color) 2px solid;\n}\n\n.colmHeaderDueDate {\n\tpadding-right: 15px;\n}\n\n#projTaskDisplay {\n\tdisplay: flex;\n\tgrid-area: 2/2/3/3;\n}\n\n#colmTwoDisplay {\n\tdisplay: grid;\n\tgrid-template-columns: 0.1fr 0.5fr 1fr 0.5fr 0.1fr;\n\tgrid-template-rows: 0.5fr 0.5fr 1fr 2fr;\n\tbackground-color: var(--30Color);\n\tborder-radius: 0.25rem;\n\theight: fit-content;\n\tmargin: 0.125rem;\n\tmargin-top: 51.5px;\n\tpadding: 0.4rem;\n}\n\n#colmTwoTitle {\n\tfont-size: larger;\n\tfont-weight: bolder;\n\ttext-align: center;\n\tbackground-color: var(--10Color);\n\tborder-radius: 0.25rem;\n\tgrid-area: 1/1/1/4;\n\tcolor: var(--30Color);\n\tdisplay: grid;\n\tgrid-template-columns: 1fr 2fr 1fr;\n\tpadding-top: 1px;\n}\n\n#colmTwoPriority {\n\tfont-size: medium;\n\tfont-weight: bold;\n\tborder-radius: 0.25rem;\n\tgrid-area: 1/4/1/6;\n\ttext-align: center;\n\ttext-justify: distribute;\n\tmargin-left: 4px;\n\tcolor: var(--30Color);\n\tpadding-top: 3px;\n}\n\n.titleDisplay {\n\tgrid-area: 1/2/1/3;\n}\n\n.editBtn {\n\tgrid-area: 1/3/1/4;\n\tfont-weight: bold;\n\tfont-size: 10px;\n\tcolor: var(--30Color);\n\tmargin-right: 2px;\n\theight: 80%;\n\tplace-self: center;\n\t/* text-justify: inter-word; */\n}\n\n#colmTwoTag {\n\tfont-size: medium;\n\tgrid-area: 2/2/2/2;\n\tborder-bottom: 2px var(--10Color) solid;\n\tborder-right: 2px var(--10Color) solid;\n\ttext-align: center;\n}\n\n#colmTwoDueDate {\n\tfont-size: medium;\n\tgrid-area: 2/3/2/5;\n\tpadding-left: 3px;\n\tborder-bottom: 2px var(--10Color) solid;\n\ttext-align: center;\n}\n\n#colmTwoDescription {\n\tfont-size: medium;\n\tgrid-area: 3/2/3/5;\n\tpadding-top: 3px;\n}\n\n#colmTwoTasksList {\n\tdisplay: flex;\n\tflex-direction: column;\n\tgrid-area: 4/1/4/6;\n}\n\n#colmTwoTasksList .itemsList {\n\tpadding: 0px 7px;\n\tborder-radius: 0.25rem;\n}\n\n#colmTwoTasksList .projTaskViewAddTaskBtn {\n\tcolor: var(--30Color);\n\tfont-weight: bold;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12987,8 +13012,9 @@ const newTaskBtn = document.getElementById("newTask");
 const newTaskBox = document.getElementById("newTaskEntryBox");
 const newProjForm = document.getElementById("newProjForm");
 const newTaskForm = document.getElementById("newTaskForm");
-const itemsList = document.getElementsByClassName("itemsList");
+const colmOne = document.getElementsByClassName("inboxColmOneList");
 const projTaskDisplay = document.getElementById("projTaskDisplay");
+let itemsList;
 
 // Load local storage data and reapply methods to objects
 (function loadLocalStorage() {
@@ -13007,7 +13033,9 @@ const projTaskDisplay = document.getElementById("projTaskDisplay");
 	_task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks.forEach((task) => (0,_task_class__WEBPACK_IMPORTED_MODULE_1__.addTaskMethods)(task));
 	(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.updateProjDisplay)();
 	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.updateIndependentTaskDisplay)();
-	colmOneItemClick();
+	(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.mkTaskSelect)(_task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks);
+	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.mkprojSelect)(_project_class__WEBPACK_IMPORTED_MODULE_0__.projectList);
+	mkColmOneEmptyNode();
 })();
 
 newProjForm.addEventListener("submit", (x) => {
@@ -13015,16 +13043,32 @@ newProjForm.addEventListener("submit", (x) => {
 	(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.newProjSubmit)(x);
 	(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.updateProjDisplay)();
 	cancelCreateObj();
+	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.mkprojSelect)(_project_class__WEBPACK_IMPORTED_MODULE_0__.projectList);
+	mkColmOneEmptyNode();
 	x.target.reset();
 });
 
 newTaskForm.addEventListener("submit", (x) => {
 	x.preventDefault();
-	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.newTaskSubmit)(x);
+	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.newTaskSubmit)(x, _project_class__WEBPACK_IMPORTED_MODULE_0__.projectList);
 	(0,_task_class__WEBPACK_IMPORTED_MODULE_1__.updateIndependentTaskDisplay)();
+	cnvrtProjChoice(x.target.children[0].children[1].children[1].value);
 	cancelCreateObj();
+	(0,_project_class__WEBPACK_IMPORTED_MODULE_0__.mkTaskSelect)(_task_class__WEBPACK_IMPORTED_MODULE_1__.independentTasks);
+	mkColmOneEmptyNode();
 	x.target.reset();
 });
+
+//Take project choice from New Task Sub and convert to correct list Item for mkColmTwoDisplay function
+function cnvrtProjChoice(projChoice) {
+	let listItemID = `project ${projChoice}`;
+
+	Array.from(itemsList).forEach((itemNode) => {
+		if (itemNode.children[3].textContent === listItemID) {
+			mkColmTwoDisplay(itemNode);
+		}
+	});
+}
 
 //Set page images
 kano.setAttribute("src", _assets_images_reshot_icon_dog_face_YE7643ZXK5_svg__WEBPACK_IMPORTED_MODULE_5__);
@@ -13089,15 +13133,17 @@ function changePriorityColor(a) {
 }
 
 //Format "empty" div when no tasks/projs
-Array.from(itemsList).forEach((x) => {
-	if (x.childElementCount == 0) {
-		let emptyNode = document.createElement("div");
-		emptyNode.textContent = "None";
-		emptyNode.style.color = "black";
-		emptyNode.style.fontWeight = "500";
-		x.append(emptyNode);
-	}
-});
+function mkColmOneEmptyNode() {
+	Array.from(colmOne).forEach((x) => {
+		if (x.childElementCount == 0) {
+			let emptyNode = document.createElement("div");
+			emptyNode.textContent = "None";
+			emptyNode.style.color = "rgb(73, 73, 73)";
+			emptyNode.style.fontWeight = "600";
+			x.append(emptyNode);
+		}
+	});
+}
 
 //Save to local storage when projects/tasks CRUD
 function setStorage() {
@@ -13136,7 +13182,6 @@ function makeProjTaskListDisplay(x, targetDiv, type) {
 			break;
 	}
 	title.textContent = x.title;
-	console.log();
 	dueDate.textContent = x.dueDateTime ? new Date(x.dueDateTime).toLocaleDateString() : "No Due Date";
 	dueDate.append(openArrow);
 
@@ -13148,23 +13193,31 @@ function makeProjTaskListDisplay(x, targetDiv, type) {
 
 	projDiv.append(priority, title, dueDate, objID);
 	targetDiv.appendChild(projDiv);
+
+	colmOneItemClick();
 }
 
-// Watch Column One Items for Click to Open details
+// Add Event listener to column one items
 function colmOneItemClick() {
-	let colmOneListItems = document.getElementsByClassName("colmOneListItems");
+	itemsList = document.getElementsByClassName("itemsList");
 
 	Array.from(itemsList).forEach((listItem) => {
-		listItem.addEventListener("click", (x) => {
-			Array.from(itemsList).forEach((n) => {
-				n.classList.remove("selected");
-				n.classList.add("unselected");
-			});
-			listItem.classList.add("selected");
-			listItem.classList.remove("unselected");
-			mkColmTwoDisplay(listItem);
-		});
+		if (listItem.getAttribute("clickListener") !== "true") {
+			listItem.addEventListener("click", (x) => colmOneSelector(listItem));
+			listItem.setAttribute("clickListener", "true");
+		}
 	});
+}
+
+function colmOneSelector(selected) {
+	Array.from(itemsList).forEach((n) => {
+		n.classList.remove("selected");
+		n.classList.add("unselected");
+	});
+	selected.classList.add("selected");
+	selected.classList.remove("unselected");
+	console.log(selected);
+	mkColmTwoDisplay(selected);
 }
 
 function mkColmTwoDisplay(listItem) {
@@ -13188,15 +13241,23 @@ function mkColmTwoDisplay(listItem) {
 	let colmTwoTasksList = document.createElement("div");
 	colmTwoTasksList.setAttribute("id", "colmTwoTasksList");
 	colmTwoTasksList.innerHTML =
-		'<div style="display: flex; justify-content: space-between;"><span style="font-size: 25px;">Tasks</span><button class="btn btn-primary btn-sm" style="height: 80%; align-self: center;">Add Task</button></div>';
+		'<div style="display: flex; justify-content: space-between;"><span style="font-size: 25px;">Tasks</span><button class="btn btn-primary btn-sm projTaskViewAddTaskBtn" style="height: 80%; align-self: center;">Add Task</button></div>';
 
 	let objKey = listItem.children[3].textContent;
 	let targetObj;
 
 	function formatDivs() {
-		let dueDate = new Date(targetObj.dueDateTime).toDateString();
-		let dueTime = new Date(targetObj.dueDateTime).toLocaleTimeString();
-		dueTime = dueTime.replace(/:(\d{2})\s/, "").toLowerCase();
+		let dueDate;
+		let dueTime;
+		let nullDue = true;
+
+		if (targetObj.dueDateTime) {
+			dueDate = new Date(targetObj.dueDateTime).toDateString();
+			dueTime = new Date(targetObj.dueDateTime).toLocaleTimeString();
+			dueTime = dueTime.replace(/:(\d{2})\s/, "").toLowerCase();
+		} else {
+			nullDue = null;
+		}
 		let title = document.createElement("span");
 		title.textContent = targetObj.title;
 		title.classList.add("titleDisplay");
@@ -13204,7 +13265,7 @@ function mkColmTwoDisplay(listItem) {
 		colmTwoTitle.append(editButton);
 		colmTwoPriority.textContent = `${targetObj.priority}`;
 		colmTwoTag.textContent = `Tag: ${targetObj.tag}`;
-		colmTwoDueDate.textContent = `Due: ${dueDate} ${dueTime}`;
+		colmTwoDueDate.textContent = nullDue ? `Due: ${dueDate} ${dueTime}` : "No Due Date";
 		colmTwoDescription.textContent = `Description: ${targetObj.description}`;
 
 		switch (targetObj.priority) {
@@ -13250,12 +13311,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   Project: () => (/* binding */ Project),
 /* harmony export */   addProjMethods: () => (/* binding */ addProjMethods),
+/* harmony export */   mkTaskSelect: () => (/* binding */ mkTaskSelect),
 /* harmony export */   newProjSubmit: () => (/* binding */ newProjSubmit),
 /* harmony export */   newProject: () => (/* binding */ newProject),
 /* harmony export */   projectList: () => (/* binding */ projectList),
 /* harmony export */   updateProjDisplay: () => (/* binding */ updateProjDisplay)
 /* harmony export */ });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/scripts/index.js");
+/* harmony import */ var _task_class__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task_class */ "./src/scripts/task_class.js");
+
 
 
 const colmOneProjList = document.getElementById("projectListDiv");
@@ -13355,14 +13419,13 @@ function addProjMethods(thisProject) {
 
 	// If project has tasklist add methods to those tasks
 	if (thisProject.taskList.length > 0) {
-		thisProject.taskList.forEach((x) => addTaskMethods(x));
+		thisProject.taskList.forEach((x) => (0,_task_class__WEBPACK_IMPORTED_MODULE_1__.addTaskMethods)(x));
 	}
 }
 
 function newProjSubmit(x) {
 	let projInfo = x.target;
 	newProject(projInfo[0].value, projInfo[1].value, projInfo[4].value, projInfo[2].value, projInfo[3].value, projInfo[5].value);
-	(0,_index__WEBPACK_IMPORTED_MODULE_0__.colmOneItemClick)();
 	(0,_index__WEBPACK_IMPORTED_MODULE_0__.setStorage)();
 }
 
@@ -13379,6 +13442,19 @@ function updateProjDisplay() {
 	projectList.forEach((x) => (0,_index__WEBPACK_IMPORTED_MODULE_0__.makeProjTaskListDisplay)(x, colmOneProjList, "project"));
 }
 
+// Fill the Add Task list for New Project Dialogue Box
+function mkTaskSelect(independentTasks) {
+	const projTaskSelect = document.getElementById("projTaskSelection");
+
+	independentTasks.forEach((task) => {
+		let taskOption = document.createElement("option");
+
+		taskOption.setAttribute("value", independentTasks.indexOf(task));
+		taskOption.textContent = `${task.title} Due: ${new Date(task.dueDateTime).toDateString().slice(4)}`;
+		projTaskSelect.append(taskOption);
+	});
+}
+
 
 /***/ }),
 
@@ -13393,6 +13469,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Task: () => (/* binding */ Task),
 /* harmony export */   addTaskMethods: () => (/* binding */ addTaskMethods),
 /* harmony export */   independentTasks: () => (/* binding */ independentTasks),
+/* harmony export */   mkprojSelect: () => (/* binding */ mkprojSelect),
 /* harmony export */   newTask: () => (/* binding */ newTask),
 /* harmony export */   newTaskSubmit: () => (/* binding */ newTaskSubmit),
 /* harmony export */   updateIndependentTaskDisplay: () => (/* binding */ updateIndependentTaskDisplay)
@@ -13413,7 +13490,11 @@ function newTask(title, description = null, tag = null, due_date = null, due_tim
 		independentTasks.push(new_task);
 	} //If there is an existing project add to project task list
 	else {
-		taskFolder.taskList ? taskFolder.taskList.push(new_task) : taskFolder.subTasks(new_task);
+		if (taskFolder.taskList) {
+			taskFolder.taskList.push(new_task);
+		} else {
+			taskFolder.subTasks(new_task);
+		}
 	}
 }
 
@@ -13504,11 +13585,9 @@ function addTaskMethods(task) {
 	}
 }
 
-function newTaskSubmit(x) {
+function newTaskSubmit(x, proj) {
 	let taskInfo = x.target;
-	console.log(taskInfo);
-	newTask(taskInfo[0].value, taskInfo[1].value, taskInfo[4].value, taskInfo[2].value, taskInfo[3].value, taskInfo[5].value);
-	(0,_index__WEBPACK_IMPORTED_MODULE_0__.colmOneItemClick)();
+	newTask(taskInfo[1].value, taskInfo[2].value, taskInfo[5].value, taskInfo[3].value, taskInfo[4].value, taskInfo[6].value, null, null, proj[taskInfo[0].value]);
 	(0,_index__WEBPACK_IMPORTED_MODULE_0__.setStorage)();
 }
 
@@ -13523,6 +13602,18 @@ function updateIndependentTaskDisplay() {
 	}
 
 	independentTasks.forEach((x) => (0,_index__WEBPACK_IMPORTED_MODULE_0__.makeProjTaskListDisplay)(x, colmOneIndependentTasks, "task"));
+}
+
+// Fill the Add Task list for New Project Dialogue Box
+function mkprojSelect(projectList) {
+	const taskProjSelect = document.getElementById("taskProjSelection");
+
+	projectList.forEach((proj) => {
+		let projOption = document.createElement("option");
+		projOption.setAttribute("value", projectList.indexOf(proj));
+		projOption.textContent = `${proj.title} Due: ${new Date(proj.dueDateTime).toDateString().slice(4)}`;
+		taskProjSelect.append(projOption);
+	});
 }
 
 

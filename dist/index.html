@@ -41,7 +41,9 @@
       </main>
       <div id="newProjEntryBox" style="visibility: hidden;">
          <form style="padding: 15px; display: flex; flex-direction: column;" id="newProjForm">
-            <span style="align-self: center; font-weight: 1000;">New Project</span>
+            <div style="display: flex; justify-content: space-between;">
+               <span style="align-self: center; font-weight: 1000;">New Project</span>
+            </div>
             <div class="input-group input-group-sm mt-2 mb-3">
                <label style="font-weight: 600;" class="input-group-text" for=" projTitle">Title</label>
                <input class="form-control" type="text" name="projTitle" required>
@@ -71,6 +73,12 @@
                   </select>
                </div>
             </div>
+            <div class="input-group input-group-sm mb-3">
+               <label class="input-group-text" for="taskSelection">Add Tasks</label>
+               <select multiple class="form-select form-select-sm" name="taskSelection" id="projTaskSelection">
+                  <option value="None">None</option>
+               </select>
+            </div>
             <div style="display: flex; justify-content: space-between;">
                <button type="submit" class="btn btn-primary btn-sm mt-0"
                   style="align-self: center; font-weight: 500;">Create
@@ -82,7 +90,15 @@
       </div>
       <div id="newTaskEntryBox" style="visibility: hidden;">
          <form style="padding: 15px; display: flex; flex-direction: column;" action="none" id="newTaskForm">
-            <span style="align-self: center; font-weight: 1000;">New Task</span>
+            <div style="display: flex; justify-content: space-between;">
+               <span style="align-self: center; font-weight: 1000;">New Task</span>
+               <div style="width: 50%; justify-self: center;" class="input-group input-group-sm">
+                  <label class="input-group-text" for="projSelection">Project</label>
+                  <select class="form-select form-select-sm" name="projSelection" id="taskProjSelection">
+                     <option value="None">None</option>
+                  </select>
+               </div>
+            </div>
             <div class="input-group input-group-sm mt-2 mb-3">
                <label style="font-weight: 600;" class="input-group-text" for=" taskTitle">Title</label>
                <input required class="form-control" type="text" name="taskTitle">

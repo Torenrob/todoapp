@@ -237,6 +237,7 @@ textarea {
 	color: var(--30Color);
 	display: grid;
 	grid-template-columns: 1fr 2fr 1fr;
+	padding-top: 1px;
 }
 
 #colmTwoPriority {
@@ -245,8 +246,10 @@ textarea {
 	border-radius: 0.25rem;
 	grid-area: 1/4/1/6;
 	text-align: center;
+	text-justify: distribute;
 	margin-left: 4px;
 	color: var(--30Color);
+	padding-top: 3px;
 }
 
 .titleDisplay {
@@ -256,26 +259,48 @@ textarea {
 .editBtn {
 	grid-area: 1/3/1/4;
 	font-weight: bold;
+	font-size: 10px;
 	color: var(--30Color);
+	margin-right: 2px;
+	height: 80%;
+	place-self: center;
+	/* text-justify: inter-word; */
 }
 
 #colmTwoTag {
 	font-size: medium;
 	grid-area: 2/2/2/2;
+	border-bottom: 2px var(--10Color) solid;
+	border-right: 2px var(--10Color) solid;
+	text-align: center;
 }
 
 #colmTwoDueDate {
 	font-size: medium;
 	grid-area: 2/3/2/5;
+	padding-left: 3px;
+	border-bottom: 2px var(--10Color) solid;
+	text-align: center;
 }
 
 #colmTwoDescription {
 	font-size: medium;
 	grid-area: 3/2/3/5;
+	padding-top: 3px;
 }
 
 #colmTwoTasksList {
 	display: flex;
 	flex-direction: column;
 	grid-area: 4/1/4/6;
+}
+
+#colmTwoTasksList .itemsList {
+	padding: 0px 7px;
+	border-radius: 0.25rem;
+}
+
+#colmTwoTasksList .projTaskViewAddTaskBtn {
+	color: var(--30Color);
+	font-weight: bold;
 }
