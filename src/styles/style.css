@@ -304,3 +304,11 @@ textarea {
 	color: var(--30Color);
 	font-weight: bold;
 }
+
+#projectListDiv,
+#independentTasksDiv,
+#colmTwoDisplay,
+#newProject,
+#newTask {
+	box-shadow: 0px 5px 15px var(--30Color);
+}
